@@ -1,0 +1,928 @@
+嵌入式  (QT)  (B/S)
+C --> C++ --> C#  (高校系统)
+	      Java  (12306)
+	      PHP (简单网站)
+	      webui
+	      ---web----
+	      android
+	      IOS
+	      ---------
+	      大数据
+	      云计算
+数据结构
+数据库系统概论(oracle,mysql,sqlserver)
+算法
+计算机网络
+计算机组成原理
+
+-----------------------------------------
+1. java开发环境的搭建
+   1)获取jdk(java开发工具集)
+	jdk -> JRE(java运行时环境) ->JVM(java虚拟机)
+   2)安装jdk(傻瓜式)
+   3)环境变量的配置
+     path  追加jdk可执行文件目录
+      ....;C:\Program Files\Java\jdk1.7.0_67\bin
+     CLASSPATH 类加载路径
+     .
+     JAVA_HOME java的家目录
+        C:\Program Files\Java\jdk1.7.0_67
+	java
+	javac
+2. DOS（windows终端，命令行工具）
+  F:  切换到F盘根目录
+  dir 查看当前目录中所有的文件以及目录
+  cls 清屏
+  cd 目录  进入到某个目录中
+     .  当前目录
+     .. 上一级目录
+     /  根目录
+     briup/src
+3. java的特征
+  一处编写，到处运行（兼容性比较好）
+
+---------------------day02-----------------------
+1. dos
+   打开方式 win + R --> cmd
+   盘符名:   F:   切换到F盘
+   dir	查看当前目录下所有的文件
+   cls  清屏
+   cd 目录
+	.	当前目录
+	..	上一级目录
+	/	根目录
+
+   rm 文件名	删除该文件
+   mkdir 目录名	创建目录
+   touch 文件	创建文件（linux）
+   mv 文件 目标目录	移动文件到目标目录
+
+2. jdk安装
+  环境变量的设置
+    Path jdk工具所有的目录 
+        C:\Program Files\Java\jdk1.7.0_67\bin
+	或者： %JAVA_HOME%\bin
+    CLASSPATH 类加载路径（搜索类的路径）
+	.
+    JAVA_HOME jdk的安装目录
+	C:\Program Files\Java\jdk1.7.0_67
+
+
+  外包
+    A 公司100万
+      10k 10k美金  csdn   stackoverflower
+       B公司项目   1000万  --- 客户
+     10人
+      20k 
+3. java程序的编写 HelloWorld
+  1)编写源代码.java
+  2)将源代码编译为字节码（.java->.class）
+     javac
+  3)运行字节码 
+     java
+
+  
+  HelloWord
+  阶段1：
+    1)编写HelloWorld并且成功运行
+      HelloWorld.java
+      编辑器（记事本，editplus）
+    2)编译(产生一个.class)
+      javac [options] 源文件
+      javac HelloWorld.java
+    3)运行
+      java [options] 完整类名
+      java HelloWorld
+
+  阶段2：
+    以项目开发的形式编写HelloWorld
+      ch02(项目名)
+        src(源文件)
+	  HelloWorld.java
+	bin(字节码)
+    编译：
+      dos应该处于项目的根目录(ch02)
+        javac -d ./bin src/HelloWorld.java
+	编译当前目录下的src文件夹下的HelloWorld.java文件，然后将生成的字节码保存到当前目录下的bin文件夹中。
+    运行：
+      dos应该处于项目的根目录(ch02)
+      类加载的过程是去CLASSPATH中寻找指定类的过程。
+      java -cp ./bin com.briup.ch02.HelloWorld
+      指定类加载路径为当前目录下的bin文件夹，也就是说去bin文件夹下去寻找com/briup/ch02/HelloWorld.class
+      
+  阶段3：
+    打包（将bin文件下所有的class以及目录打包）
+    应该处于bin目录下
+    ch02/bin
+    
+    jar -cvf 目录jar包 打包内容
+    jar -cvf hello.jar *
+    java -cp test.jar com.briup.ch02.HelloWorld
+  
+  阶段4
+    java com.briup.ch02.HelloWorld
+	
+
+4. 基本语法
+    1)类的语法
+      访问修饰符 [其他修饰符] class 类名{
+	类体
+      }
+      public class HelloWorld{
+      
+      }
+      类名应该采用驼峰式命名（第一个单词首字母大写，以后每个单词首字母也大写）
+      StudentServiceImpl
+
+    2)在一个java源文件中只能有一个类被public修饰,并且这个类的类名应该和源文件的文件名相同。但是一个源文件中可以有多个类。
+    3)在java中所有的语句（表达式）只能出现在类体中，不允许有孤立语句的存在。
+    4)当运行一个类的时候，这个类必须有main方法，并且从main方法开始执行，main方法的签名如下：
+      public static void main(String[] args){
+      
+      }
+    5) 类的顶级三要素
+      包的声明
+        包名是域名的反写
+	package 包名;
+      类的导入
+        jdk(jre<jvm,jars>)
+	import java.util.Date;
+
+      类的声明
+	public class HelloWorld{
+	
+	}
+----------------------------------------
+1. 类的成员
+  访问修饰符 [其他修饰符] class 类名{
+      //成员属性（全局变量）
+      访问修饰符 [其他修饰符] 类型 属性名;
+      //成员方法
+      访问修饰符 [其他修饰符] 返回值类型 方法名(参数列表){
+      
+      }
+      //构造器
+      访问修饰符 类名(){
+      
+      }
+  }
+  public class Student{
+	public String name;
+	private double weight;
+
+	public void sayHello(){
+		System.out.println(name+"：说hello");	
+	}
+	public int add(int a,int b){
+		return a+b;
+	}
+  }
+java
+javac
+jar
+javadoc
+
+
+--------------------day04-----------------------
+类{
+    属性
+    方法
+    构造函数
+}
+注释：
+  单行注释
+    //
+  多行注释
+   /*
+   
+   */
+  文档注释
+   /**
+	加在类上，成员方法上，构造函数上
+   */
+   ch03
+     src
+       Student.java
+       Test.java
+         main(){
+	   Student stu = new Student();
+	   stu.sayHello();
+	 }
+     bin
+     doc
+
+   dos应该处于项目根目录 ch03
+     javac -d ./bin src/Student.java
+     javac -d ./bin -cp ./bin src/Test.java
+
+     javac -d ./bin src/*.java
+
+
+     java -cp ./bin com.briup.ch03.Test
+
+     javadoc -d ./doc src/*.java
+标识符：
+  以字母，数字，下划线(_)，$组成，并且只能以字母，下划线(_)，$开头，长度没有限制，区分大小写，不能为关键字。
+	public class interface 
+	if else do while switch 
+	case ....
+
+
+  类名	  StudentServiceImpl
+  接口名  IStudentService
+  属性名  name,age,firstName(全局变量)
+  方法名  add addStudent
+  变量名  a,b ,str(局部变量)
+
+Java为强类型语言，即在变量声明时候要先确定该变量的数据类型，并且这个变量使用为这个数据类型
+
+变量
+  1. 声明
+	类型 变量名;
+	int a;//int a,b,c;
+	Student stu;
+  2. 初始化
+	a = 3;
+	stu = new Student();
+  3. 使用
+	syso(a+3);
+	syso(stu.name);
+
+  声明和初始化可以合并
+	int a = 3;
+
+
+
+数据类型
+  1)基本数据类型 （8种）简单数据类型
+    无符号整数
+	char（单个字符）2字节 16位 [0~2^15-1]
+	   unicode编码
+	   65  'A'
+	   66  'B'
+	   ...
+	   101	'1'
+	   ...
+	   1001 '中'
+	   ...
+	   char c1 = 'A';
+	   char c2 = '中';
+	   char c3 = '1';
+	   char c4 = 65;
+	   char c5 = 0x41;//0x开头表示16进制4*16^1+1*16^0
+	   char c6 = 0101;//0开头表示8进制
+	   char c7 =0b1000001;//jdk7 0b开头表示2进制
+    有符号整数
+	byte	1字节 -2^7~2^7-1
+	short	2字节 -2^15~2^15-1
+	int	4字节 -2^31~2^31-1
+	long	8字节 -2^63~2^63-1
+    有符号小数
+	float	4字节	精度7位
+	double	8字节	精度15位
+
+	在银行项目中不允许使用float,double
+	BigDecimal
+
+    布尔类型
+	boolean	true,false
+
+  char byte short int long float double boolean
+
+  2)引用数据类型（1种）复杂数据类型
+	Student stu = new Student();
+	stu.name ="terry";
+	stu.age =12;
+
+
+
+--------------------------day05------------------------
+数据类型
+  1)基本数据类型（简单数据类型 8 种）
+     无符号整数
+	char	[0,2^15-1]
+		char c1 = 'A';
+		char c2 = 65;
+		char c3 = '\u0000';	
+		     c4 = '\uffff';
+		...
+     有符号整数
+	byte 
+	short
+	int
+	long
+		当值过大时需要以'l'/'L'结尾
+		long a = 12929243929323L;
+     有符号小数
+	float
+		必须以'f''F'结尾
+	double
+		可以以'd','D'结尾
+
+	java.math.BigDecimal   
+     布尔类型
+	boolean    true;false
+
+  2)引用数据类型（复杂数据类型）
+     类：
+        访问修饰符 class 类名{
+		//成员属性
+		访问修饰符 数据类型 属性名;
+		//成员方法
+		访问修饰符 返回值类型/void 方法名(参数列表){
+		
+		}
+		//构造函数 初始化对象
+		访问修饰符 类名(参数列表){
+			
+		}
+	}
+	public class Student{
+	    private long id;
+	    private String name;
+	    private int age;
+
+	}
+
+    JavaBean(java中最简单的类，模型)
+	//1.私有属性
+	//2.公共setter,getter方法
+	//3.重写父类中toString()方法
+	//4.构造函数
+
+    属性，方法
+     
+    没有被static修饰的属性/方法
+      非静态属性/方法
+      成员属性/方法
+      实例属性/方法
+      对象属性/方法
+      private int age;
+      public int add(int a,int b){
+      
+      }
+
+      这样的属性/方法只能被对象调用
+    被static修饰的属性/方法
+      静态属性/方法
+      类属性/方法
+      private static int age;
+      public static int add(int a,int b){
+      
+      }
+
+1. 构造函数
+   在构建对象的时候被调用，用于初始化对象。当一个类中没有提供构造函数，系统将会默认提供一个无参构造函数，当一个类中有构造函数，系统将不会提供。
+
+2. Object
+   java.lang.Object是所有类的父类，也就是说所有的类继承Object
+   
+   子类继承父类中所有的公共属性和方法
+
+   当打印一个对象的时候默认调用该对象的toString()方法
+
+   toString  返回一个对象的字符串描述信息
+
+----------------作业-----------------------
+ 模仿Student,Test
+   Teacher
+   Clazz
+   School
+   ....
+
+
+   eclipse
+   myEclipse  无脑  jdk tomcat
+
+
+-----------------------day06------------------------
+1. review
+   JavaBean类
+     1.私有属性
+     2.公共settter,getter方法
+     3.重写父类toString()
+     4.构造函数
+
+   构造函数() -- setXxx()
+   toString() -- getXxx()
+
+
+2. 变量
+   1)数据类型
+       基本数据类型的变量
+		int a;
+		float b;
+       引用数据类型的变量
+		String str;
+		String[] args;
+		Student stu;
+
+   2)变量的访问范围
+	全局变量（实例变量，对象属性）
+	  定义在类中方法外，也被称为属性
+	  系统会使用初始值进行初始化，可以直接使用
+
+	局部变量
+	  定义在方法中,变量只在该方法中有效
+	  使用务必要先声明，在初始化，在使用
+
+3. static 静态修饰符
+   public class Student {
+	public String name;
+	public static int eyeNums;
+	public void showName(){
+	
+	}
+	public static getEyeNums(){
+	
+	}
+   }
+   可以修饰属性和方法
+   1. 静态属性，静态方法（类属性，类方法）
+      1,在类加载阶段进行初始化
+      2,通过类名可以直接调用
+	Student.eyeNums;
+	Student.getEyeNums();
+
+   2. 非静态属性，非静态方法（实例属性，实例方法）
+      1,在创建对象的时候才初始化
+      2,通过对象（实例）来调用
+	Student stu = new Student();
+	stu.name;
+	stu.showName();
+	
+
+  算法（排序，查找）+数据结构
+  高级面向对象
+  sql
+	查询（嵌套，连接）
+    
+-----------------------------day07----------------------------
+
+表达式 = 操作数+操作符
+ int a = 3;
+ a+3;
+
+
+操作符：
+  基本数据类型
+    ---数字类型---
+      无符号整数
+        char
+      有符号整数
+        byte
+	short
+	int 
+	long
+      有符号小数
+        float
+	double
+    ---布尔类型---
+        boolean
+	  true false
+
+  1.算数操作符(数字类型之间的计算)
+    +	
+	byte char short int long float double
+	byte char short 之间运行结果为 int
+    -
+    *
+    /	
+        当两个操作数都为整数类型，取整
+	当两个操作数有一个为小数类型，除法
+
+    %	取余
+	当两个操作数都为整数类型，余数为整数类型
+	当两个操作数有一个为小数类型，余数为小数类型
+	
+    字符串拼接
+       任何数字类型+字符串结果为字符串
+       "3"+3
+       return "School [id:"+this.id+"]";
+
+  2.赋值运算符
+    =
+	int a = 3;
+	将3赋给整数类型变量 a
+    +=		
+	int a = 3;
+	a+=3; // a = a+3;
+	a<<=3 // a = a<<3   0000 0011
+			    0001 1000
+    -=
+    *=
+    /=
+    %=
+    位运算（原反补）
+    ^=,&=,|=,>>=,>>>=,<<
+  3.比较运算符(结果只能为boolean类型)
+    <
+    >
+    <=
+    >=
+     只能比较基本数据类型中的数字类型
+
+    ==
+    !=
+     当比较基本数据类型时，比较的是具体的值，值相等结果为true
+
+  4.逻辑运算符(短路运算符)
+    操作数只能为boolean
+    exp1 && exp2
+    &&	同真才真，有假则假
+      当第一个操作数为false，结果为false,没有必要判断第二个表达式
+
+    ||  有真则真，同假才假
+
+    !ture   false
+    !false  true
+    File file = new File("C:/a.txt");
+    if(!file.exist()){
+	file.createNewFile();
+    }
+  5.三目运算符
+    exp1?exp2:exp3
+    if(exp1){
+      exp2;
+    }else{
+      exp3;
+    }
+    exp1必须为boolean类型的表达式
+    当exp1为真，执行exp2,否则执行exp3
+    
+
+  6.位运算
+    以补码形式表示数字，运算单位为位
+
+    异或 ^
+      两个操作数相同位上的值相等为0，不等为1
+      1^2
+      0000 0001
+      0000 0010
+      ---------
+      0000 0011
+    位与 &
+      两个操作数相同位上的值都为1结果为1，否则为0
+      1 & 2
+      0000 0001
+      0000 0010
+      ---------
+      0000 0000
+    位或 |
+      两个操作数相同位上的值都为0结果为0，否则为1
+      1 | 2
+      0000 0001
+      0000 0010
+      ---------
+      0000 0011
+    左位移 <<
+      1<<3
+    有符号右移 >>
+    无符号右移 >>>
+
+ -----------------------------day08----------------------------
+1.流程控制语句
+  if(exp1){
+  
+  }else if(exp2){
+  
+  }else{
+  
+  }
+  temp;
+  switch(temp){
+	case 常量1:
+
+	break;
+	case 常量2:
+
+	break;
+	case 常量3:
+
+	break;
+	......
+	
+  }
+  temp jdk1.6以及以下版本temp类型只支持
+	 byte short char int
+       jdk1.7以及以上版本temp类型增加支持
+         String Enum(枚举类型)
+2.循环语句
+  循环语句的三要素
+    初始化条件
+    结束条件
+    迭代
+  1) for循环
+     for(初始化;结束条件;迭代){
+	//循环体
+     }
+  
+  2) while循环
+     
+     初始化条件
+     while(结束条件){
+	
+	迭代
+     }
+
+  3) do-while循环
+
+     初始化条件
+     do{	
+	
+	迭代
+     }while(结束条件);
+
+     
+3. 循环中的关键字
+  break		跳出循环
+  continue	结束本次循环，直接进入下一次循环
+  循环标签	标记循环
+	
+4. 类型转换
+  1)隐式转换
+	基本数据类型
+	char int long float double
+	byte short int long float double
+	------------变大-------------->
+	int a = 3;
+	long b = a;
+	引用数据类型
+	
+	子类类型 -> 父类类型
+	
+	    泰迪犬  狗  动物
+	    class TaiDi extends Dog{
+	    
+	    }
+
+	    class Dog extends Animal(){
+	    
+	    }
+	    TaiDi t1 = new TaiDi();
+	    Dog d1 = t1;
+	    Aniaml a1 = d1;
+
+  2)显式转换
+	基本数据类型
+	   char int long float double
+	   byte short int long float double
+	   <------------变小--------------
+	   long a = 3;
+	   int b = (int)a;
+	   引用数据类型
+	
+	 父类类型 ->子类类型
+	 Dog dog = new TaiDi();
+	 TaiDi t1 = (TaiDi)dog();
+	
+	   
+	
+--------------------------day09----------------------------
+1. 数组
+   1）数组是具有相同数据类型值的集合（容器）
+   2）数组也是引用数据类型，（对象）
+   3）数组在初始化的时候应该指定数组的长度，并且长度一旦指定不能更改,数组的长度通过length属性获取
+   4）数组是一个特殊的对象，该对象中的成员：
+	length;  属性，数组的长度
+	成员
+
+	int[] arr = new int[]{1,2,3,4};
+	arr对象 length = 4
+		成员  1,2 ,3,4
+
+   5) 数组的访问通过索引来访问，索引的范围为[0,length-1]
+      数组名[index]。当索引超过这个范围，代码将会报错ArrayIndexOutOfBoundsException。
+
+   
+   数组声明
+	数据类型[] 数组名;
+	数据类型 数组名[];
+
+	String[] args;
+	String args[];
+   初始化
+	系统初始化（系统将Student对象中的属性初始化）
+        stu = new Student();
+	自定义初始化
+	stu = new Student(1001L,"terry",12);
+
+	
+	int[] args;
+	系统初始化
+	args = new int[3];
+	自定义初始化
+	args = new int[]{1,2,3};
+
+	Student[] stus;
+	stus = new Student[3];
+
+   使用
+	int[] arr = new int[4];
+	int[] arr = new int[]{1,2,3,4};
+	特殊：int[] arr = {1,2,3,4}; //只能声明和初始化放在一起
+	
+     遍历：（设计模型） 相同功能的代码不要在一个类中出现多次
+     System.out.println(arr[0]);
+     System.out.println(arr[1]);
+     System.out.println(arr[2]);
+     System.out.println(arr[3]);
+     System.out.println(arr[4]); //非法
+
+     for(){
+     
+     }
+      
+--------------------------day10------------------
+二维数组（数组中保存数组）
+  数据类型[]  在数组中保存数据类型指定的值
+  Student[]   在数组保存学生对象
+  int[][]     在数组保存数组对象
+
+  声明
+    数据类型[][] 数组名;
+    数据类型[] 数组名[];
+    数据类型 数组名[][];
+  初始化
+    在初始化时必须初始化第一个维度
+    int[] arr = new int[];
+    int[][] arr = new int[3][];
+
+-----------------------day11-----------------------
+Sms	学生信息管理系统 （大作业）
+	项目
+	软件工程开发流程：
+		1，可行性分析
+			ok(数组，对象)
+		2，需求分析
+			查询所有学生信息
+			添加学生信息
+			修改学生信息
+			删除学生信息
+			通过学号查找学生
+		3，总体设计
+			类图
+			用例图
+			Student stu
+				对象 存储单个学生的信息
+				Student[] stus
+					数组 存储多个学生的信息，存储单位为stu对象
+			Sms	程序类
+				启动项目，与用户进行交互
+
+		4，详细设计
+			4.1 coding
+
+		5，单元测试
+			
+		6，集成测试
+			
+		7，部署运行
+
+
+	JavaEE  后台开发
+			|
+			|
+	WebUI	前台开发
+	android	前台开发
+	ios		前台开发
+
+	github
+
+1. Java从终端（标准输入）获取用户输入
+	Scanner
+	  java.util.Scanner
+
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
+
+2. import 导类
+	不用import情况：
+		1) 当前类和要调用的类在同样一个包下
+			Student
+			Test
+				Student
+		2) 要调用的类在java.lang包中
+			String
+			Math
+
+3. String API  
+	java.lang.String
+	id#name#age
+	String str = new String("1001#terry#12");
+	String str = "1001#terry#12";
+	int a = 3;
+		1)判断两个字符串字符序列是相等的
+			equals()
+				比较字符序列是否相等
+			String str = new String("hello");   
+			String str2 = "hello";
+			==  比较内存地址
+			str == str2
+			hello
+			HELLO
+		2)字符串的分割
+			String[] split("");
+		
+4. 类型转换
+	String->基本数据类型
+		id#name#age
+		String str = "1001#terry#12"
+		String[] arr = str.split("#");
+		// {"1001","terry","12"}
+		arr[0] -> "1001"
+		arr[2] -> "12"
+
+		int a = (int)"12";
+
+	基本数据类型	包装器类型(java.lang)
+	byte			Byte
+	short			Short
+	int				Integer(特殊)
+	long			Long
+	char			Character(特殊)
+	float			Float
+	double			Double
+	boolean			Boolean
+
+	int a = 3;
+	Integer a = 3;
+
+	String str = "3";
+	int a = Integer.parseInt(str);
+	byte b = Byte.parseByte(str);
+	long c = Long.parseLong(str);
+
+5. 数组的拷贝
+	int[] arr = new int[3];
+		arr[0] = 3;
+		arr[1] = 2;
+		arr[2] = 5;
+
+	辅导班
+		老教室
+		Student[] stus = new Student[3];
+		
+		新教室
+		Student[] demo = new Student[6]
+
+		for(int i=0;<stus.length;i++){
+			demo[i] = stus[i];
+		}
+		=》
+		System.arraycopy(stus,1,demo,0,stus.length);
+
+		
+		System.arraycopy(
+			原数组,
+			原数组开始位置,
+			目的数组,
+			目的数组开始位置,
+			拷贝元素的个数)
+
+
+--------------------------day12------------------------------
+F:briup/kj34  - （代码）github
+a.avi		  - 百度云盘
+
+	软件开发
+		git（企业级开发软件）
+			不会	失败
+			会		90%
+				6K	9K
+				7k	10K
+1.代码存储	
+	
+			
+2.版本文件
+	ppt
+		建好
+		第一次修改	1	
+		第二次修改	2
+		第三次修改	2
+	sms
+		1
+		2
+		3
+		4,2-3
+3.团队开发
+	IT 公司 ：19岁
+
+	github 网站，代码托管网站
+		组长
+		组员1
+		组员2	---- 1份
+		组员3
+		组员4
+
+
+	网易公开课（c,java,php...）
+		github
+
+  sms学生信息管理系统
+    增删改查
+
+------------------作业--------------------
+1. 将sms消化
+2. 模仿Sms , Tms教师管理系统
+3. 将自己写好的代码发布到github上

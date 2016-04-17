@@ -1,0 +1,857 @@
+-------------------day01------------------------
+1. 搭建java的开发环境
+  1> jdk java开发工具集
+	  jvm	java虚拟机
+	  jre	java运行时环境
+  2> 安装
+    安装目录：C:\Program Files\Java\jdk1.7.0_67
+	bin 可执行文件目录
+		java	运行java文件
+		javac	编译java源代码
+		javadoc 生成帮助文档
+		jar	打包java代码
+	
+  3> 环境变量的配置
+    path : 路径1;路径2;路径3
+	C:\Program Files\Java\jdk1.7.0_67\bin
+    CLASSPATH: 类加载路径
+	.
+    JAVA_HOME:
+	C:\Program Files\Java\jdk1.7.0_67
+
+2. java特性
+  1) 一处编写，到处运行
+  2) 开源
+
+3. dos命令
+  cd 目录  切换目录
+     .. 上一级目录
+     .  当前目录
+     /  根目录
+  dir 显示当前目录中所有的文件
+
+-----------------------day02---------------------------
+  1. dos
+    cls 清理屏幕
+    dir	查看当前目录中所有的文件
+    cd 目录	进入某个文件
+	cd .    进入当前文件夹
+	cd ..	进入上一个文件夹
+	cd /	进入根目录
+
+    mkdir 目录	创建目录
+    touch 文件	创建文件
+    rmdir 目录	删除目录
+    rm	文件	删除文件
+    mv 文件 目标目录	将文件移动到目标目录
+
+
+  2. 搭建java开发环境
+     1)安装jdk
+     2)配置环境变量
+        Path 指定jdk工具所在的目录
+		C:\Program Files\Java\jdk1.7.0_67\bin
+	CLASSPATH 类加载路径
+		.
+	JAVA_HOME java的安装目录
+		C:\Program Files\Java\jdk1.7.0_67
+
+  3. 编写编译运行HelloWorld
+     1)编写代码 .java
+       ch02
+         HelloWorld.java
+     2)编译代码  .java-->.class（javac命令）
+       javac [参数] 要编译的源文件
+       javac HelloWorld.java
+     3)运行字节码文件 .clsss 在jvm中执行
+       java [参数] 可执行文件的完整类名（包名+类名）
+       java HelloWorld
+
+     -----------------------------------------
+     深入1：
+	1)ch02项目名
+	    src	源文件
+	    bin	字节码文件
+	    dos所在目录应该为项目的根目录（ch02/）
+	    javac -d ./bin src/HelloWorld.java
+	2)体现Java类的顶级三要素
+	  包名 
+	    命名应该采用公司域名反写
+	    package com.briup.sms;
+	  类的导入(JRE:<JVM,JAR>)
+	    import java.util.Date;
+	  类的声明
+	    public class HelloWorld
+
+     深入2：
+	修改CLASSPATH 方便运行java类
+     深入3：
+	打包
+	.jar(类，库)
+	.war(web项目)
+
+	bin/
+		jar -cvf 包名 打包内容
+		jar -cvf test.jar *
+     深入4：
+       ? 在dos的任意位置运行HelloWorld
+     
+
+
+  4. 简单语法
+     1)文件名应该与类名（被public修饰）相同，每个文件中只能有一个类被public修饰
+     2)类名应该采用驼峰式命名，第一个单词首字母大写，以后每个单词的首字母也大写
+     3)当运行一个类时，应该从main方法开始执行，main的签名应该为：
+	public static void main(String[] args){}\
+     4)类的语法：
+	访问修饰符 [其他修饰符] class 类名{}
+	public class HelloWorld{}
+	在java中不允许将语句写在类的外部
+
+   5. java核心api
+     java.lang  基本
+     java.util  工具
+     java.thread多线程
+     java.io	输入输出流
+     java.sql	数据库操作
+     java.net	网络编程包
+
+
+
+   类		人类 Person
+   对象		张三 李四 王五
+
+
+--------------------------day03--------------------------------
+类成员
+  访问修饰符 [其他修饰符] class 类名{
+    // 成员属性
+    访问修饰符 [其他修饰符] 类型 属性名;
+    // 成员方法
+    访问修饰符 [其他修饰符] 返回值类型/void 方法名(形参列表){
+      方法体
+    }
+    //构造函数
+    访问修饰符 类名(形参列表){
+    
+    }
+  }
+  public class Student{
+    public String name;
+    private double weight;
+
+    public Student(){
+    
+    }
+
+    public void sayHello(){
+	System.out.println("hello");
+    }
+    public int add(int a,int b){
+	return a+b;
+    }
+  }
+
+访问修饰符	
+  public	同类	同包	父子类	其他类
+  protected	同类	同包	父子类
+  默认		同类	同包
+  private	同类
+
+
+
+
+
+软件开发 -- 软件运维 -- 产品设计 -- 管理层 -- 软件测试
+
+  ch03
+    bin
+    src
+      Test.java
+    1.编写
+    2.编译
+      ch03 项目根目录
+      javac -d ./bin src/Test.java
+
+      bin
+        com
+	  briup
+	    ch03
+	      Test.class
+    3.运行(类加载过程 CLASSPATH : .)
+      java -cp ./bin com.briup.ch03.Test
+
+  ch03
+    bin
+    src
+      Test.java
+      Student.java
+    2.编译
+      javac -d ./bin src/Student.java
+      javac -d ./bin -cp ./bin src/Test.java
+      编译src/Test.java，如果需要用到其他类，则去./bin去加载。并且将生成的字节码文件放置到bin目录下
+    3.运行
+      java -cp ./bin com.briup.ch03.Test.java
+ 
+
+-------------------------day04----------------------------------
+
+ch04
+  bin
+  src
+    Student.java
+    Test.java
+  doc(帮助文档目录，一般不用)
+  编译：
+    1) 逐个编译
+	javac -d ./bin src/Student.java
+	javac -d ./bin -cp ./bin src/Test.java
+    2) 一起编译
+        javac -d ./bin src/*.java
+    3) 将源代码中的文档注释产生帮助文档
+        javadoc -d ./doc src/*.java
+	
+ 
+ ; 空格，空行; {}
+
+ 每个表达式的结束都应该有分号
+ if(){
+	int a ;
+	a = 3;
+	syso();
+ }
+
+ 标识符
+   作为命名规则：
+   标识符是由字母，数字，下划线，$组成。只能由字母，下划线(_)，$开头。区分大小写，长度没有限制，不能为关键字。
+
+	Student_Service
+	_Student123
+
+
+	123_Student
+	_student%service
+   类名：	StudentServiceImpl
+   接口名：	IStudentService
+   方法名：	show99 99cbb addStudent
+   属性名：	name age
+   变量名：	a b abc stuAge
+   常量名：	STATE_PASS,STATE_NOTCHECK
+
+
+变量(java是强类型数据语言)
+  1. 声明
+	数据类型 变量;
+	int a;
+	char b,c;
+	Student stu;
+	String name;
+  2. 初始化
+	a = 3;
+	b = '4';
+	c = 'A';
+  3. 使用
+	syso(a);
+  先声明，再初始化，再使用。
+  声明和初始化可以在一起
+	int a = 3;
+	float b = 4.0F;
+  
+	
+数据类型
+  1)基本数据类型(简单数据类型 8种)
+    无符号整数(单个字符)
+    char   2字节  16位  [0 ~ 2^15-1]
+    java采用的是Unicode编码。
+     65  A
+     66  B
+     ...
+     1001  中
+     1002  国
+	char c1 = 65;   //10进制
+	char c4 = 0x41; //16进制 0x开头
+	char c5 = 0101; //8进制	 0开头
+	char c6 = 0b1000001;//jdk1.7 2进制0b开头
+	char c2 = '6';
+	char c3 = 6;
+    有符号整数
+	byte	1字节	[-2^7~2^7-1]
+	short	2字节	[-2^15~2^15-1]
+	int	4字节	[-2^31~2^31-1]
+	long	8字节	[-2^63~2^63-1]
+
+	可以使用2进制，8进制，10进制，16进制来表示
+	byte a1 = 126;
+	short a2 = 129;
+	int a3 = 129999;
+	long a4 = 1299999L;(当值大过int所能表示的范围时候，一定要加'l'或'L')
+    有符号小数
+	float	精度7位
+	double	精度15位
+	float f1 = 12.3F;//12.3f
+	float值后必须以'f'或者'F'结尾
+        double值后可以以'd'或者'D'结尾
+
+    布尔类型
+	boolean
+		true
+		false
+    char byte short int long float double boolean
+
+  2)引用数据类型(复杂数据类型 1种)
+    String
+    Student
+
+static
+  static 修饰方法   类方法
+		    实例方法（成员方法）
+
+
+------------------------day05------------------------
+数据类型的应用
+  1) 变量的声明：
+	数据类型 变量名;
+	int a;
+	String str;
+	Student stu;
+  2) 属性的声明
+	访问修饰符 数据类型 属性名;
+	private long id;
+	private String name;
+  3) 方法的声明
+	public int add(int a,int b){
+		return a+b;
+	}
+  4) 参数
+	public int add(int a,int b){
+	
+	}
+
+
+数据类型
+  1. 基本数据类型（简单的数据类型 8种）
+     1) 无符号整数
+	char	2字节
+	   char c1 = 'A'
+	   char c2 = 65;
+	   ...
+     2) 有符号整数
+	byte	1字节	
+	short	2字节
+	int	4字节
+	long	8字节
+	当值过大时，值应该以'l'或'L'结尾
+     3) 有符号小数
+	float
+		值必须以'f'或'F'结尾
+		float f1 = 10.0f;
+	double	
+		值可以以'd'或'D'结尾
+		double d1 = 10.9;
+	钱，不能使用float,double
+	BigDecimal
+
+     4) 布尔类型
+     boolean true/false
+	
+  2. 引用数据类型（复杂的数据类型,类类型）
+     类：
+
+     访问修饰符 class 类名{
+	//  成员属性/对象属性/实例属性/非静态属性
+	访问修饰符 数据类型 属性名;
+	private int age;
+	//  类属性
+	private static long stuNumber;
+
+	//方法
+	访问修饰符 返回值类型/void 方法名(形参列表){
+	
+	}
+	//构造函数
+	访问修饰符 类名(形参列表){
+	
+	}
+     }
+
+
+     成员属性/对象属性/实例属性/非静态属性
+	只能通过对象来访问
+
+     类属性/静态属性
+	可以通过类名直接来访问
+
+1. JavaBean
+   最简单的类（模型）
+   类是创建对象的模板，对象是用来存储信息。
+
+  
+2. Object
+   java中所有的类都继承自java.lang.Object
+	toString(); 返回该对象的字符串描述
+	equals();
+	hashCode();
+	clone();
+	...
+
+
+   子类可以继承父类中所有的属性和方法
+   在打印一个对象的时候会默认调用该对象的toString()方法
+
+3. 构造函数
+   当一个类中没有提供构造函数时，系统会默认为该类提供一个无参构造函数，如果这个类有构造函数，系统将不再提供。
+
+
+
+----------------------------day06------------------------------
+数据类型
+  1.基本数据类型
+	char	
+	byte short int long 
+	float double
+	boolean
+  2.引用数据类型(复杂的数据类型)类类型
+	String
+	Date
+	Student 
+  JavaBean类
+		/**
+		  实例化过程（对象创建）
+		  1. 将School类加载到内存中
+		  2. 根据School类（模板）开辟内存
+		  3. jvm将对对象属性初始化（利用初始化值）
+			 char '\u0000' 空格
+				'A'
+				65
+				'\u0000' ~ '\uffff'
+
+			 byte	0
+			 short	0
+			 int	0
+			 long	0L
+			
+			 float  0.0F
+			 double 0.0D
+
+			 boolean false
+
+			 引用数据类型 null
+				String
+				Student 
+		  4.执行构造函数中的代码完成自定义初始化
+		  5.将该对象在内存中的首地址返回
+		*/
+		School sc1 = new School();
+
+1. 变量
+   1)按照变量所属的数据类型分类
+     基本数据类型变量
+	int a;
+	float b;
+     引用数据类型变量
+	String str;
+	String[] args;
+
+   2)按照变量的作用范围
+     全局变量
+	实例变量，成员变量（成员属性，实例属性）
+	定义在类中，可以被访问修饰符修饰，并且会被JVM自动初始化
+
+     局部变量
+	定义在方法中，不可以被访问修饰符修饰，在使用之前必须先声明再初始化
+	方法中的参数也被称为局部变量
+	局部变量不能重复声明，但是可以声明与实例变量相同的变量，通过this来访问全局变量，通过变量名来访问局部变量
+
+2. static 静态修饰符
+   static可以修饰 方法，属性
+     Student 
+
+     静态方法，静态属性
+	（类属性，类方法 在类加载的时候初始化）
+        可以直接通过类名来访问
+	在静态方法中不允许调用非静态方法和非静态属性
+
+	public static int stuNumbers;
+	public static double random(){
+		return 
+	}
+     非静态方法，非静态属性
+        （成员属性，对象属性，在对象实例化过程初始化）
+	只能通过对象（实例）来访问
+	public long id;
+	public String name;
+	public int add(int a,int b){
+		return a+b;
+	}
+	Student stu = new Student();
+	stu.id
+    
+
+
+
+  ----------------------------------------------
+  3. UML J2EE（servlet/jsp）html网站开发 
+    coreJava + (html+div+css静态网页) +servlet/jsp + SSH
+
+    MyEclipse
+
+
+-----------------------------day07-----------------------------
+
+1. 变量
+  实例变量
+  局部变量
+2. 操作符
+  表达式= 操作数 + 操作符
+  int a = 1+2;
+  int a = 3;
+  int b = 4;
+  int total = a+b;
+
+  a: 操作符适用的数据类型
+  b: 运算结果为什么数据类型
+
+  1) 算数操作符
+     java.math.BigDecimal
+
+     a:适用于基本数据类型数字类型{ 无符号整数，有符号整数，有符号小数}
+     b: byte,short,char运算时先被转换为int类型
+        byte char short int long float double
+	---------------变大------------------->
+     +
+     -
+     *
+     /
+       当两个操作数都为整数时，取整运算
+       当两个操作数有一个为小数时，除法运算
+
+     % 取余
+       当两个操作数都为整数时，结果为整数
+       当两个操作数有一个为小数时，结果为小数
+      
+  2) 赋值运算符
+     =
+	int a = 3;
+     +=	a+=1;	//a = a+1
+     -= a-=1;	//a = a-1
+     *=
+     /=
+     %=
+     ^=
+     &=
+     |=
+     >>=
+     >>>=
+     <<=
+  3) 自增自减
+     ++	
+     --
+  4) 字符串拼接
+     +
+     int a = 3;
+     String b = "1";
+     "字符串"+a+"字符串"  //"字符串3字符串"
+     String result = a+b;// "31"
+
+  5) 比较运算符(返回值类型为布尔类型)
+     <
+     >
+     >=
+     <=
+     基本数据类型之间的比较
+
+     ==
+     !=
+     基本数据类型之间的比较，比较的是值
+     引用数据类型之间的比较，比较的是内存地址
+       
+  6) 逻辑运算符（短路运算符）
+     运算结果布尔类型
+     操作数必须为布尔类型表达
+     && 同真才真，有假则假
+     || 同假才假，有真则真
+     !  非
+        !true  false
+	!false true
+	File file = new File("C://java/a.txt");
+	if(!file.exist()){
+	     file.createNewFile();
+	}
+
+  7) 三目运算符
+     exp1?exp2:exp3
+     exp1为布尔类型表达式
+     if(exp1){
+	exp2
+     }else{
+	exp3
+     }
+  8) 位运算符
+     以位为单位进行运算
+
+     异或 ^
+       当相同位上的两个值相同时结果为0，否则为1
+       int a = 3;// 0000 0011
+       int b = 1;// 0000 0001
+       int result = a^b;	//2
+     位与 &
+       当相同位上的两个值都为1的时候结果为1，否则为0
+       int a = 3;// 0000 0011
+       int b = 1;// 0000 0001
+       int result = a^b;	//1
+     位或 |
+       当相同位上的两个值都为0的时候结果为0，否则为1
+       int a = 3;// 0000 0011
+       int b = 1;// 0000 0001
+       int result = a|b;	//3
+     按位取反
+       ~
+     左位移(左移一位相当于乘以2)
+       int a = 1;// 0000 1000
+       a<<3
+
+     有符号右移
+
+     无符号右移
+       
+
+
+---------------
+ 说明&& &操作符之间的区别，|| |操作符的区别
+
+-------------------day08------------------
+1. if语句
+    if(exp1){
+	
+    }
+
+    if(exp1){
+	
+    }else{
+	
+    }
+
+    if(exp1){
+	
+    }else if(exp2){
+    
+    }else{
+    
+    }
+    //  1 星期一，2 星期二
+
+2. switch 分支语句
+
+  char temp = 3;
+  switch(temp){
+      case 常量1:{
+	//code1
+	break;
+      }
+      case 常量2:
+	//code2
+      break;
+      case 常量3:
+	//code3
+      break;
+      ...
+      default:
+        //code
+  }
+
+  temp为变量：
+	只能为byte short char int中的一种 (jdk1.6)
+	添加了String,Enum(枚举类型)	  (jdk1.7)
+
+  case后应该跟break(跳出switch代码块)
+
+  default可以位于中间，上面，下面
+
+3. 循环语句  for
+   循环语句三要素
+     初始化条件
+     结束条件
+     迭代
+
+   for(初始化条件，结束条件，迭代){
+   
+   }
+	
+4. 循环语句 while
+
+   初始化
+   while(结束条件){
+
+	迭代   
+   }
+
+5. 循环语句 do-while
+
+   初始化条件
+   do{
+	
+	迭代
+   }while(结束条件);
+
+------------------------day09------------------------
+Java数强类型语言
+
+1.数组
+  数据结构的基础（链表，栈，树，图）
+  数组是具有相同数据类型值的集合。
+  数组也是对象，该对象的成员包括：
+	该数组的长度 length（属性）
+	该数组的成员
+  数组的长度一旦指定不能更改，数组的长度在数组初始化的时候一定要指定。
+
+  数组中的成员（元素）通过索引来访问，索引的范围为[0,length-1],如果索引超过了这个范围，代码将报错，ArrayIndexOutOfBoundsException 数组越界异常
+
+  数组名[index]
+
+  Student stu;
+  stu= new Student();
+  stu.name;
+
+
+  数组的声明
+    数据类型[] 数组名;
+    数据类型 数组名[];
+
+    String[] args;	// 声明了一个字符串数组，该数组名为args
+    Student students[];
+
+  数组的初始化
+    1.系统初始化
+      String[] args;
+      args = new String[3];  //在堆内存中开辟3个连续的内存空间用来存储三个字符串
+
+      =>stu = new Student();
+
+    2. 自定义初始化
+      args = new String[]{"terry","larry","jacky"};
+      //在堆内存中开辟3个连续的内存空间,并且初始化
+
+      =>stu = new Student(1001,"larry",12);
+    自定义初始化
+
+  数组的使用
+    args[0]
+
+    遍历数组中所有的元素
+        String[] args 
+		= new String[]{"terry","larry","jacky"};
+	for(int i=0;i<args.length;i++){
+		args[i];
+	}
+
+2. 二维数组（数组中的数组）
+	Student[] studengs = new Student[3];
+	students[0]  学生的数组
+
+	初始化二维数组的时候，一定要先指定第一个维度的长度
+
+   数组的声明
+	int[][] arr;
+	int arr[][];
+   数组的初始化
+        arr = new int[3][];
+
+		arr[0]   保存的null
+		arr[1]   保存的null
+		arr[2]   保存的null
+
+		arr[0] = new int[3];
+		arr[1] = new int[2];
+		arr[2] = new int[3];
+
+	int[][] arr = new int[]{
+			new int[3],
+			new int[2],
+			new int[3]
+	};
+
+	int[] arr = {1,2,3};
+	int[][] arr = {{1,2,3},{3,2},{5,4}};
+	
+
+------------------------day11-------------------
+语法
+API
+	java.lang
+	java.util
+	java.io
+	java.net
+	java.sql
+	...
+
+1. import
+	类的顶级三要素
+		package
+		import
+		class
+
+	不需要import情况：
+		1)当前类和所需要的类在同一个包中
+			Test
+				Student
+		2)所需要的类位于java.lang包下
+			String
+			Math
+
+	import java.util.Date;
+		Date
+2. Scanner 扫描器
+	java.util.Scanner
+		Scanner sc = new Scanner(System.in);
+		int i = sc.nextInt();
+
+3. String   
+	任何类继承自Object
+	1. boolean equals(Object o) 
+		用于判断当前字符串和参数对象是否相等
+		String str1 = "hello";
+		String str2 = new String("hello");
+		
+		str1 == str2	//比较的是内存地址
+		str1.equals(str2);	//比较的字符序列
+
+		equalsIgnoreCase()忽略大小写进行比较
+
+	2. String[] split(String rexp) 
+		用于将字符串分割为字符串数组
+
+		男生姓名#女生姓名
+
+		String str = "1001#terry#12"
+		String[] arr = str.split("#");// {"1001","terry","12"}
+
+	3. String substring(int beginIndex)
+	   String substring(int beginIndex,endIndex)
+	   获取子字符串
+
+4. 包装器类
+	基本数据类型	包装器类型(java.lang)
+		char		Character(特殊)
+		byte		Byte
+		short		Short
+		int			Integer(特殊)
+		long		Long
+		float		Float
+		double		Double
+		boolean		Boolean
+
+		int a = 3;
+		Student stu = new Student();
+
+5. 数组拷贝
+  
+--------
+Object 所有方法
+String 至少20个方法
+
+
+
+
+
+
+
