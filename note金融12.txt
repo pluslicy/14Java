@@ -884,14 +884,14 @@ import
 		equals()	比较两个字符串是否相等
 			String str = "break";
 			str.equals("break");
+		// "XGCMCCMM#旧密码#新密码"
+		String[] arr = str.split("#");
 
-	字符串到普通数据类型之间的转换
+	字符串到基本数据类型之间的转换
 		包装器类.parseXxx(字符串)
 		long num = Long.parseLong("100");
 		int num = Integer.parseInt("100");
 		double num = Double.parseDouble("11.3");
-
-
 	基本数据类型	包装器类型
 	byte			Byte
 	short			Short
@@ -901,5 +901,13 @@ import
 	float			Float
 	double			Double
 	boolean			Boolean
+
+	Scanner
+		java.util.Scanner
+		扫描器类
+			nextLine
+		Scanner sc = new Scanner(System.in);
+		String line = sc.nextLine();	//阻塞
+
 
 

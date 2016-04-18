@@ -843,7 +843,24 @@ API
 		int a = 3;
 		Student stu = new Student();
 
+		字符串到基本数据类型的转换
+		"1001" + 1
+		long a = Long.parseLong("1001");
+		int b = Integer.parseInt("1001");
+		Short c = Short.parseShort("1001");
+
 5. 数组拷贝
+	System.arraycopy(
+		源数组，
+		源数组中开始位置，
+		目的数组，
+		目的数组中开始位置，
+		拷贝个数
+	);
+	int[] src = new int[]{1,2,3};
+	int[] des = new int[6];	{0,0,0,0,0,0}
+	System.arraycopy(src,0,des,3,3);
+		
   
 --------
 Object 所有方法
