@@ -853,7 +853,26 @@ JavaBean类{  //模型类
 
 ---------------------day11-----------------
   学生信息管理系统
-  前世今生
+
+1. import
+	导入本类需要的其他类
+	import java.util.Date;
+
+	不需要import的情况
+	1) 当前类和所需要的类在同包下
+		com.briup.ch08.Test
+			Student
+		com.briup.ch08.Student
+	2) 所需要的类位于java.lang下
+		java.lang.String
+		java.lang.Object
+		java.lang.Math
+	
+2. Scanner
+	扫描器类
+
+
+
 
 
 
