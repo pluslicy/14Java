@@ -34,6 +34,8 @@ public class Sms {
 		stus[2] = stus[3]
 	}
 	index = 3
+
+	{1,2,4,5,6,7,8,9,0}
 	*/
 	//通过id删除学生 1002  1T  "HELLO WORLD"
 	public void deleteById(long id){
@@ -71,6 +73,27 @@ public class Sms {
 		System.arraycopy(stus,0,demo,0,index);
 		return demo;
 	}
+	/**
+	{
+	{1001,terry,12},
+	{1002,larry,13},
+	null
+	}
+	1002
+	{1002,larry,13}
+	请输入。。。。[name,age]
+	tom#14
+
+	{1002,tom,14}
+	*/  
+	public void update(Student stu){
+		for(int i=0;i<index;i++){
+			if(stu.getId() == stus[i].getId()){
+				stus[i].setName(stu.getName());
+				stus[i].setAge(stu.getAge());
+			}
+		}
+	}
 	//菜单
 	public void menu(){
 		System.out.println("********学生管理系统*******");
@@ -78,6 +101,7 @@ public class Sms {
 		System.out.println("*2，添加学生信息*");
 		System.out.println("*3，删除学生信息*");
 		System.out.println("*4，查询学生信息*");
+		System.out.println("*5，修改学生信息*");
 		System.out.println("*exit，退出*");
 		System.out.println("*help，帮助*");
 		System.out.println("***************************");
@@ -114,6 +138,13 @@ public class Sms {
 						int age = Integer.parseInt(stuArr[2]);
 						//封装对象
 						Student stu = new Student(id,name,age);
+						//判断该用户id是否已经被人占用
+						Student dbStu = sms.queryById(id);
+						if(dbStu!=null){
+							System.out.println("该id已经被人占用，请重新录入！");
+							continue;
+						}
+
 						sms.add(stu);
 						System.out.println("添加成功！");
 					}
@@ -140,6 +171,32 @@ public class Sms {
 						Student stu = sms.queryById(Long.parseLong(id));
 						System.out.println("以下是您要查找的学生的信息：");
 						System.out.println(stu!=null?stu:"not found!");
+					}
+					break;
+				case "5"://修改
+					while(true){
+						System.out.print("请输入您要修改学生的id或break返回上一级目录:");
+						String id = scanner.nextLine();
+						if(id.equals("break")){
+							break;
+						}
+						Student stu = sms.queryById(Long.parseLong(id));
+						if(stu == null){
+							System.out.println("该学生不存在！");
+							continue;
+						}
+						System.out.println("原信息为："+stu);
+						System.out.println("请输入您要修改的信息【name#age】");
+						String stuStr = scanner.nextLine();
+						String[] stuArr = stuStr.split("#");
+
+						String name = stuArr[0];
+						int age = Integer.parseInt(stuArr[1]);
+
+						Student newStu = new Student(Long.parseLong(id),name,age);
+
+						sms.update(newStu);
+						System.out.println("修改成功！");
 					}
 					break;
 				case "help":

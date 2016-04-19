@@ -56,9 +56,27 @@ public class Sms{
 						//封装对象
 						Student stu = new Student(id,name,age);
 						sms.save(stu);
+						System.out.println("添加成功！");
 					}
 					break;
 				case "3":
+					while(true){
+						System.out.println("请输入要删除学生的id或输入break返回上一级");
+
+						String idStr = scanner.nextLine();
+						if(idStr.equals("break")){
+							break;
+						}
+						//将字符串转换为long
+						long id = Long.parseLong(idStr);
+						Student stu = sms.findById(id);
+						if(stu==null){
+							System.out.println("您要删除的学生不存在！");
+							continue;
+						}
+						sms.deleteById(id);
+						System.out.println("删除成功！");
+					}
 					break;
 				case "4":
 					while(true){
@@ -75,9 +93,17 @@ public class Sms{
 							continue;
 						}	
 						System.out.println("原来："+stu);
-						System.out.println("请输入修改后的信息:");
+						System.out.println("请输入修改后的信息【name#age】:");
 						String stuStr = scanner.nextLine();
-
+						
+						String[] arr = stuStr.split("#");
+						String name = arr[0];
+						int age = Integer.parseInt(arr[1]);
+						//包装用户输入的新对象的对象
+						Student newStu = new Student(id,name,age);
+						sms.update(newStu);
+						System.out.println("修改成功！");
+						
 					}
 					break;
 				case "5":
@@ -130,9 +156,28 @@ public class Sms{
 		stus[index++] = stu;
 	
 	}
-	//删除信息
+	/**
+	//删除
+	{
+		{1001,terry,12},
+		{1003,larry,12},
+		null
+	}
+	stus.length = 3;
+	index = 3;
+	num = 1
+	for(int i=1;i<2;i++){
+			stus[1] = stus[2];
+	}
+	stus[index-1] = null;
+	*/
 	public void deleteById(long id){
-	
+		//获取该id在数组中索引
+		int num = findIndexById(id);
+		for(int i=num;i<index-1;i++){
+			stus[i] = stus[i+1];
+		}
+		stus[--index] = null;
 	}
 	/**
 		查询
@@ -169,10 +214,14 @@ public class Sms{
 		System.arraycopy(stus,0,stusDemo,0,index);
 		return stusDemo;
 	}
-	//修改
-	public Student update(Student stu){
-
-		return null;
+	//修改 id,   -- name,age
+	public void update(Student stu){
+		for(int i=0;i<index;i++){
+			if(stu.getId() == stus[i].getId()){
+				stus[i].setName(stu.getName());
+				stus[i].setAge(stu.getAge());
+			}
+		}
 	}
 
 }

@@ -910,4 +910,64 @@ import
 		String line = sc.nextLine();	//阻塞
 
 
+-------------------------------day13-----------------------------
+1. 面向对象的三大特征
+	封装
+		1)数据的封装
+			public class Student{
+				private long id;
+				private String name;
+			}
+		2)实现细节的封装
+			findIndexById(long id);
+	继承
+	多态
+2. 类 与 对象
+	类		是抽象的数据结构		人类
+			C语言结构体类似
+				int a = 3;
+				int[] arr = [1,2,3];
+				{
+					a
+					arr
+				}
+	对象	是类的实例（具体）		张三
 
+3. 方法
+	访问修饰符 [其他修饰符] 返回值类型 方法名(参数列表) [throws Exception]
+	{
+		方法体
+	}
+	public void save(Student stu){
+	
+	}
+	public int add(){
+		return 3;
+	}
+	
+	参数传递：
+		值传递：
+			值的拷贝，将当前值复制一份给另外一个变量。
+
+		地址传递（引用传递）
+			地址的拷贝，将当前对象所在的地址传递给另外一个变量，这时，两个变量同时指向同样一个对象
+	
+4. this
+	当前对象！
+	public class Student{
+		private long id;
+		public void setId(id){
+			this.id = id;
+		}
+	}
+	
+	Student stu = new Student();
+	stu.setId(1001);
+
+	Student stu2 = new Student();
+	stu2.setId(1002);
+
+5. 方法的重载
+	在同一个类中，方法名相同，参数不同（参数类型，参数个数，参数顺序），返回值类型可以相同也可以不同。
+	public int add(int a,int b){}
+	public double add(double a,double b){}

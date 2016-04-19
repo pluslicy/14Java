@@ -869,9 +869,60 @@ JavaBean类{  //模型类
 		java.lang.Math
 	
 2. Scanner
-	扫描器类
+	java.util.Scanner
+	扫描器类，扫描输入流 System.in
+	Scanner scanner = new Scanner(System.in);
+	scanner.nextLine();
+
+3. String
+	java.lang.String
+	1)equals
+		String str = "hello";
+		String str2 = new String("hello");
+
+		str == str2	比较的地址 false
+		str.equals(str2);	比较字符串的字符序列 true
+	2)split
+		String info = "1001#terry#12";
+		//XGCMCCMM#旧密码#新密码
+		//XGCMCCMM#123321#123456
+		String arr = info.split("#");
+		==>{"XGCMCCMM","123321","123456"}
+	......(20个)
+4. 将字符串转换为基本数据类型
+	"1001"->1001 (long)
+	基本数据类型	包装器类
+		byte		Byte
+		short		Short
+		int			Integer
+		long		Long
+		char		Character
+		float		Float
+		double		Double
+		boolean		Boolean
+
+		long id = Long.parseLong("1001");
+		int age = Integer.parseInt("12");
+		double salary = Double.parseDouble("2.1");
+		....
+		xxx n = 包装器类.parseXxx("");
 
 
+
+
+
+
+
+	Student stu = new Student();
+	stu
+		stu.setName();
+	对象(引用数据类型的变量)
+
+	int a = 3;
+	a 
+		a.
+	
+	(基本数据类型的变量)
 
 
 
