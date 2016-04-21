@@ -905,6 +905,90 @@ HelloWorld
 		目的数组
 		目的数组开始拷贝位置,
 		拷贝个数)
+----------------------day12-------------------------------
+	完善Sms系统
+
+----------------------day13-------------------------------
+1. 面向对象三大特征：
+	封装
+		1. 数据的隐藏
+			属性设置为私有，并且提供setter,getter方法
+			为所有用户提供统计访问入口
+				setId();
+
+		2. 实现细节不可见
+			int index = findIndexById(1001);
+			double d = Math.random();
+	继承
+	多态
+2.方法：
+	访问修饰符 [特殊修饰符] 返回值类型 方法名(参数列表) [throws Exception]{
+	
+	}
+	方法的调用：
+		1. 静态方法不能直接调用非静态方法
+			如果想调用，必须通过对象名来调用
+			Test test = new Test();
+			test.test1();
+		2. 在同样一个类中，非静态方法可以直接调用非静态方法
+			test1(){
+				login("terry","briup");
+			}
+	传递参数：
+		1) 值传递（值的拷贝）
+			当参数为基本数据类型的时候
+			int a = 3;
+			int b = a;
+			++b;
+
+		2) 引用传递（地址的拷贝）
+			当参数为引用数据类型的时候为引用传递
+			Student stu = new Student(1001L,"terry",12);
+			//Student stu2 = stu;
+			Student stu2 = new Student(1002L,"larry",12);
+			stu2.setName("Larry");
+		
+	方法的重写
+	toString(){
+	
+	}
+3. 构造函数/方法的重载
+	在同一个类中，两个方法的方法名相同，参数不同（参数个数,参数类型,参数顺序）,返回值类型可以相同，可以不同，这两个方法被称为重载
+	
+	public int add(int a,int b){
+	
+	}
+	public double add(double a,douoble b){
+	
+	}
+	public int add(float c,douoble d){
+	
+	}
+	public int add(double c,float d){
+	
+	}
+	
+
+
+
+
+	public Student(){
+	
+	}
+	public Student(long id,String name,int age){
+		this.id = id;
+		this.name = name;
+		this.age = age;
+	}
+	
+
+
+
+
+
+
+
+
 
 ------------作业---------------
   一个班级中有5个小组
@@ -916,9 +1000,6 @@ HelloWorld
   使用二维数组表示该班级下所有的学生
   JAVABean
   Student 
-
-
-
   使用数组模拟栈结构
 	Stack
 		void push(int num)
@@ -939,4 +1020,31 @@ HelloWorld
 		void add(int num)
 		int del()
 
-----------------------------------------------------
+ch13作业
+	1. 消化Sms
+	2. 模仿Sms， Tms
+	3. 将Tms发布到github中
+
+--------学习路线-----------------------------------
+1. 基本语法学习
+	C,Shell脚本,Js	
+	java简述
+	数据类型
+	变量
+	表达式
+		分支
+		循环
+	数组
+
+2. 面向对象
+	
+3. API（Scanner,String,Math,Date）
+
+4. jdbc(持久化保存)
+
+5. 框架
+	Servlet/jsp
+	SSH
+
+
+
