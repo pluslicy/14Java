@@ -3,7 +3,24 @@ import java.util.Scanner;
 public class Test{
 	public static void main(String[] args){
 		Test test = new Test();
-		test.test2();
+		test.test3();
+	}
+	//数组拷贝
+	public void test3(){
+		int[] arr = new int[]{9,3,3,4};
+		int[] arr2 = new int[8];
+		//数组拷贝
+		System.arraycopy(arr,2,arr2,3,arr.length-2);
+		//打印数组
+		showArray(arr);
+		showArray(arr2);
+	}	
+	//封装了打印数组的方法
+	public void showArray(int[] arr){
+		for(int i : arr){
+			System.out.print(i+",");
+		}
+		System.out.println();
 	}
 	public void test2(){
 		String info = "1001#terry#12";

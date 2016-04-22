@@ -907,12 +907,6 @@ JavaBean类{  //模型类
 		....
 		xxx n = 包装器类.parseXxx("");
 
-
-
-
-
-
-
 	Student stu = new Student();
 	stu
 		stu.setName();
@@ -924,12 +918,40 @@ JavaBean类{  //模型类
 	
 	(基本数据类型的变量)
 
+5. 数组拷贝
+	int[] arr = new int[]{9,3,3,4};
+	int[] arr2 = new int[8];
+	System.arraycopy(
+		int[] src,		源数组
+		int srcIndex,	源数组开始位置
+		int[] des,		目的数组
+		int desIndex,	目的数组开始位置
+		length			拷贝个数
+	)
+	
+6. 增强for循环  foreach
+	for(变量的声明 : 数组或集合){
+	
+	}
+	for(int i : arr ){
+		System.out.println(i);
+	}
 
 
+coreJava 
+oracle/sqlserver/mysql
+servlet/jsp(html+div+css)
+SSH
 
 
+webapp
+	html+div+css+js+H5
+android
+ios
 
-
+  混合式开发
+	android + H5
+	ios	+ H5
 
 ------------作业-------------
 1.人民币转换器
