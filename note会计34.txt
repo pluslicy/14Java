@@ -921,6 +921,85 @@ a.avi		  - 百度云盘
 
   sms学生信息管理系统
     增删改查
+--------------------------day13-----------------------
+完善学生信息管理系统
+
+--------------------------day14-----------------------
+基本语法(c,c++)	-> 面向对象思想OOP -> Java API
+
+1. 面向对象三大特征：
+	封装
+		1)数据的隐藏
+			私有属性
+
+		2)行为的封装	
+			showArray();
+			System.arraycopy()
+			findIndexById();
+			
+	继承
+	多态
+2. 方法
+	访问修饰符 [其他修饰符] 返回值类型 方法名(参数列表) 
+		[throws Exception]{
+		
+	}
+	public static void main(String[] args){
+	
+	}
+	当方法没有返回值的时候，返回值类型必须为void
+	当方法有返回值的时候，在方法体的结束必须有return 值，值的类型必须和返回值类型保持一致或者可以通过隐式转换转换为该类型
+	public long add(int a ,int b){
+		return a+b;
+	}
+
+3. 参数传递
+	值传递
+		int a = 3;
+		int b = a;	//传递的是值
+		++b;
+		syso(a)		//3
+
+	引用传递
+		Student stu = new Student(1001,"terry",12);
+		Student stu2 = stu;	//传递的是引用地址
+		stu2.setId(1002);
+		syso(stu.getId())		//1002
+
+4. 访问修饰符
+				同类	同包	父子类	其他包
+	public		ok		ok		ok		ok
+	protected	ok		ok		ok	
+	默认	    ok		ok		
+	private	    ok		
+
+5. 方法/构造函数的重载
+	在同一个类中，两个方法的方法名相同，参数不同（参数的个数，参数类型，参数的顺序），返回值可以相同也可以不同。
+
+	public int add(int a, int b){
+		return a+b;
+	}
+	public long add(int a, int b){
+		return a+b;
+	}
+	public double add(int a,double b){
+		return a+b;
+	}
+6.	构造函数
+	构造函数的函数名和类名一直
+	构造函数的作用是用来初始化对象的，在创建对象的时候调用
+	构造函数也可以发生重载
+7. this
+	指当前对象
+		this.id
+		this.name 
+	指当前类
+		this(); 这行代码必须在构造函数中第一行
+		调用本类中的其他构造函数
+		
+
+
+. 重写
 
 ------------------作业--------------------
 1. 将sms消化
