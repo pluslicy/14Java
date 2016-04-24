@@ -962,11 +962,74 @@ github	/百度云盘/QQ空间
 2. 模仿Sms,写Tms
 3. 将写好的代码发布到github中。
 
+--------------------------------day14-------------------------
+基本语法学习 -- 面向对象 -- API
+1. 面向对象三大基本特征
+	封装
+	继承
+	多态
+2. 类与对象
+	类是一种抽象的数据结构，用于规范对象的创建
+		Student 学生类
+		Teacher 老师类
+	对象是由类创建（实例化）出来的，用于保存单个对象的数据。
+		Student stu;  stu学生对象
+3. 方法
+	访问修饰符 [其他修饰符] 返回值类型 方法名([参数列表])[throws Exception]{
+		方法体
+	}
+	static void test(long id) {
+	
+	}
+	public Student findById(long id){
+		return null;
+	}
 
+	如果方法没有返回值，返回值类型必须为void.如果方法有返回值，返回值类型必须为能接收该值的类型
+4. 访问修饰符
+	public		
+	protected
+	默认
+	private		
+5. 参数传递
+	1) 值传递
+		int a = 3;
+		int b = a;
+		++b;
+		syso(a);	//3
 
+	2) 引用传递
+		Student stu = new Student(1001,"terry",12);
+		Student stu2 = stu;
+		stu.setAge(13);
+		syso(stu);	// age:13
 
+6. this
+	指向当前对象,this的值在创建了对象之后才能被确定
+		this.id
+		this.name
 
+	指向当前类
 
+7. 构造函数
+	访问修饰符 类名(参数列表){
+	
+	}
+	当当前类没有显式提供构造函数，系统将默认提供一个无参构造函数，当我们显式提供构造函数，系统将不会再给我们提供。
+
+8. 方法/构造函数 的重载
+	在同一个类中，两个方法的方法名相同，参数不同（参数个数，参数顺序，参数类型），返回值可以相同可以不同，这样的两个方法称为方法重载
+
+	public int add(int a ,int b){
+		return  a+b;
+	}
+	public double add(int a ,int b){
+		return  a+b;
+	}
+	public double add(double a,double b){
+		return a+b;
+	}
+	
 
 
 
