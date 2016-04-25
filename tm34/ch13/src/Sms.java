@@ -9,9 +9,6 @@ public class Sms {
 	private Student[] stus = new Student[3];
 	//表示学生数组中真正保存学生的个数
 	private int index = 0;
-
-		
-
 	/**
 		查找所有学生
 		stus = {
