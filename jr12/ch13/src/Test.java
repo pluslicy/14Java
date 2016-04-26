@@ -2,9 +2,6 @@ package com.briup.ch13;
 
 public class Test {
    
-   
-  
-
    public static void increment(int a) { 
 		++a;//3
    }

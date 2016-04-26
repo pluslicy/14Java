@@ -1,13 +1,12 @@
-package com.briup.ch14;
-
+package com.briup.ch13;
 /**
-  学生类是用来创建学生对象的，学生对象是用来存储该学生的信息的
+	学生类
 */
-public class Student{
+public class Student {
 	private long id;
 	private String name;
 	private int age;
-
+	//构造函数
 	public Student(){
 	
 	}
@@ -16,15 +15,9 @@ public class Student{
 		this.name = name;
 		this.age = age;
 	}
-	public Student(String name,int age){
-		this.name = name;
-		this.age = age;
-	}
-	
+	//setter getter
 	public void setId(long id){
-		//当前对象
 		this.id = id;
-		System.out.println("this:"+this);
 	}
 	public long getId(){
 		return this.id;
@@ -42,4 +35,8 @@ public class Student{
 		return this.age;
 	}
 
+	//重写Object toString
+	public String toString(){
+		return "student[ id:"+this.id+",name:"+this.name+",age:"+this.age+"]";
+	}
 }

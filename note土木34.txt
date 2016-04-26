@@ -915,9 +915,26 @@ Java的核心语法	---> 面向对象思想 --> JavaAPI
 
 	2)引用传递
 
+5. this
+	1) 指向当前对象
+		this.id
+		this.name
 
+	2) 指向当前类
+		this();
 
+6. 方法重载
+	在同一个类中，两个方法的方法名相同，参数不同（参数个数，参数顺序，参数类型），返回值可以相同可以不同，那这两个方法为重载关系。
 
+	public int add(int a,int b){
+		return a+b;
+	}
+	public double add(int a,int b){
+	
+	}
+	public double add(int a, double b){
+		return a+b;
+	}
 
 -----------------------作业--------------------------
 1. 掌握Sms

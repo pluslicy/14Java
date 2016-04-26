@@ -2,12 +2,23 @@ package com.briup.ch14;
 
 public class Test {
 	public static void main(String[] args){
-		new Test().test4();
+		new Test().test5();
 	}
+	public void test5(){
+		Math math = new Math();
+		math.add(1,1);
+		math.add(1.0,1.0);
+		math.add("1","1");
+	}
+
 	public void test4(){
 		Student stu = new Student();
 		stu.setId(1001);
 		System.out.println("stu:"+stu);
+
+		Student stu2 = new Student();
+		stu2.setId(1001);
+		System.out.println("stu:"+stu2);
 
 	}
 	public void test3(){

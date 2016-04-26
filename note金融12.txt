@@ -934,8 +934,7 @@ import
 	对象	是类的实例（具体）		张三
 
 3. 方法
-	访问修饰符 [其他修饰符] 返回值类型 方法名(参数列表) [throws Exception]
-	{
+	访问修饰符 [其他修饰符] 返回值类型 方法名(参数列表) [throws Exception]{
 		方法体
 	}
 	public void save(Student stu){
@@ -948,26 +947,170 @@ import
 	参数传递：
 		值传递：
 			值的拷贝，将当前值复制一份给另外一个变量。
+			int a =3;
+			int b = a;
+			++b;
+			syso(a);
+			syso(b);
 
 		地址传递（引用传递）
 			地址的拷贝，将当前对象所在的地址传递给另外一个变量，这时，两个变量同时指向同样一个对象
-	
+			Student stu = new Student(1001,"terry",12);
+			Student stu2 = stu;
+			stu2.setAge(13);
+			syso(stu);
+			syso(stu2);
 4. this
-	当前对象！
-	public class Student{
-		private long id;
-		public void setId(id){
-			this.id = id;
+	1)指向当前对象
+		this.id
+		this.name 
+		this.***
+
+		public class Student{
+			private long id;
+			public void setId(id){
+				this.id = id;
+			}
 		}
-	}
-	
-	Student stu = new Student();
-	stu.setId(1001);
+		Student stu = new Student();
+		stu.setId(1001);
 
-	Student stu2 = new Student();
-	stu2.setId(1002);
-
+		Student stu2 = new Student();
+		stu2.setId(1002);
+	2)指向当前类
+		一般情况用于在一个构造函数中调用另一个构造函数，如果使用this,那么这行代码一定要放在该构造函数第一行。
+		this();
+		
 5. 方法的重载
 	在同一个类中，方法名相同，参数不同（参数类型，参数个数，参数顺序），返回值类型可以相同也可以不同。
 	public int add(int a,int b){}
 	public double add(double a,double b){}
+
+6. 构造函数
+    构造函数是一种特殊的方法，该方法没有返回值类型，并且方法名为类名。
+	
+	调用：
+		new 构造函数名(实参列表)
+	
+	如果一个类中没有构造函数，系统将会提供一个默认的无参构造函数，如果一个类中有自定义构造函数，系统将不再提供
+
+	构造函数重载
+		在一个类中，构造函数的参数不同。
+	
+		public class Student{
+			public Student(){
+			
+			}
+			public Student(long id){
+			
+			}
+		}
+
+-------------------------------day14-----------------------------
+
+面向对象三大特征：
+	封装
+	继承
+		1.通过“extends”来完成继承
+		2.单继承
+			public class Student extends Person{
+			
+			}
+		3.构造函数不能被继承
+		4.属性和方法可以被继承
+		5.在子类的构造函数中会隐式的调用父类的无参构造函数，当父类中没有无参构造函数的时候必须在子类构造函数中显式调用父类的有参构造函数。
+
+		public class Animal{
+			public Animal(){
+			
+			}
+		}
+		public class Dog extends Animal{
+			public Dog(){
+				super();
+			}
+		}
+		6.以后当为一个类添加有参构造函数的时候，请尽量将无参构造函数写出来，这样可以避免很多问题
+	多态
+1. super
+	1)指向当前对象的父类对象
+		super.name
+		super.age
+	2)指向当前类的父类
+		super();
+		
+
+----------------------day15-------------------
+封装
+	1.数据的封装
+		将属性设置为私有的
+
+	2.方法的封装
+		将实现细节在一个方法中包含
+		findIndexById();
+	方法重载
+继承
+	extends
+	构造函数
+
+多态
+	一个对象只能有一种类型
+    一个变量可以有多种类型
+	Dog dog = new Dog();
+	Animal dog = new Dog();
+	1. 重写
+		发生在父子类中，子类重写父类的方法，子类中的方法与父类中的方法 
+			1)方法名相同，
+			2)参数相同（参数个数，参数类型，参数顺序），
+			3)返回值类型相同。
+			4)访问修饰符不能被缩小
+				public 
+				protected
+				默认
+				private
+			5)异常不能被放大。
+				RuntimeException
+				Exception
+			
+	2. 多态
+		子类继承父类，当使用父类类型的引用指向子类对象的时候：
+		1)该引用只能调用父类中存在的方法，不能调用子类中特有的方法.
+		2)如果通过该引用调用父类中存在的方法，正好子类中也重写了该方法，这时候体现的子类特点。
+
+		Animal{	
+			eat(){
+				
+			}
+			move(){
+			
+			}
+		}
+		Bird extends Animal{
+			move(){
+			
+			}
+			speak(){
+			}
+		}
+		Animal a = new Bird();
+		a.eat();  //合法，体现Animal特点
+		a.move(); //合法，体现Bird的特点
+		a.speak();//不合法
+
+
+	3. instanceof关键字
+		用来判断该变量指向的对象是否是某一个类型的实例
+
+		Animal a = new Bird();
+		a instanceof Bird;
+		a instanceof Animal;
+		a instanceof Object;
+				true
+		a instanceof Dog;
+				false
+
+	由于在创建鸟的对象的时候，需要调用Bird的构造函数，而在Bird构造函数中要默认调用Animal的构造函数，调用Animal的构造函数的时候又要调用Obejct的构造函数，也就是说该对象是又Bird,Animal,Object共同构建出来的，所以说该对象是Bird,Animal,Object的实例！
+
+
+		
+			
