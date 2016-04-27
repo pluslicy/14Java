@@ -5,7 +5,15 @@ public class Dog extends Animal {
 
 	public Dog(){
 		//隐式调用Animal的无参构造函数
+		super(null,0);
 		System.out.println("正在调用dog的构造函数");
+	}
+	public Dog(String name,int age,String color){
+		super(name,age);
+		this.color = color;
+	}
+	protected void move(){
+		System.out.println(super.getName()+"正在奔跑");
 	}
 
 	public void setColor(String color){
@@ -13,5 +21,9 @@ public class Dog extends Animal {
 	}
 	public String getColor(){
 		return this.color;
+	}
+
+	public String toString(){
+		return "[Dog name:"+super.getName()+",age:"+super.getAge()+",color:"+this.color+"]";
 	}
 }

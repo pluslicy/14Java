@@ -1003,27 +1003,49 @@ a.avi		  - 百度云盘
 		private String name;
 		private int age;
 		public Animal(String name){
-		
+			super();
+			this.name = name;
 		}
 	}
 	public class Dog extends Animal{
 		public Dog(){
-			super("")
+			super("");
+		}
+		public Dog(String color){
+			super("");
 		}
 	}
 	public class Bird extends Animal{
-		
+		public Bird(){
+			super("");
+		}
 	}
+
 	0. 子类可以继承父类中的属性和方法，但是不能继承构造函数！
 	1. 通过 extends 关键字完成继承
 	2. 单继承！一个类只能有一个直接父类
 	3. 任何一个类要直接或者间接继承Object
 	4. 当创建子类对象的时候,需要调用子类构造函数，在所有子类构造函数中都会先调用父类的无参构造函数，假如父类中没有无参构造函数，必须在子类的构造函数中显式调用父类的有参构造函数。
-
+	5. 建议如果要为一个类提供有参构造函数的话，一定要将无参构造函数显式的提供出来。
 	Dog dog = new Dog();
 	
+1. super
+	1) 指向父类对象
+		super.name			this.color
+		super.getName()		this.getColor()
 
-. 重写
+	2) 指向本类的父类
+		super()				this()
+		必须位于所有代码之前
+
+
+2. 重写
+	发生在父子类当中，子类方法重写父类方法，父子类方法：
+	1)方法名相同
+	2)参数相同（类型，个数，顺序）
+	3)返回值类型也相同。
+	4)访问修饰符不能被缩小，
+	5)异常不能被放大
 
 ------------------作业--------------------
 1. 将sms消化

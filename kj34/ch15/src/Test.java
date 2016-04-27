@@ -5,7 +5,7 @@ public class Test{
 		new Test().test1();
 	}
 	public void test1(){
-		Dog dog = new Dog();
+		Dog dog = new Dog("Ò»ÐÝ",3,"½ð»ÆÉ«");
 		dog.move();
 	}
 }

@@ -8,7 +8,9 @@ public class Animal {
 		System.out.println(this.name+"正在移动。。。");
 	}
 
-	public Animal(){
+	public Animal(String name,int age){
+		this.name = name;
+		this.age = age;
 		System.out.println("正在调用Animal的构造函数");
 	}
 
