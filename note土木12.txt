@@ -1008,8 +1008,9 @@ github	/百度云盘/QQ空间
 	指向当前对象,this的值在创建了对象之后才能被确定
 		this.id
 		this.name
-
 	指向当前类
+		调用本类中的其他构造函数
+		this();
 
 7. 构造函数
 	访问修饰符 类名(参数列表){
@@ -1031,9 +1032,53 @@ github	/百度云盘/QQ空间
 	}
 	
 
+--------------------------------day15-------------------------
+1. 封装
+	1)数据的封装
+		属性设置为私有，并且提供公共setter,getter方法
+		private Long id;
+		private String name;
+
+		通过外部访问本类的接口
+
+	2)行为的封装
+		将一个逻辑写入到一个方法中，后期如果想要完成该逻辑直接调用该方法即可，不需要关注该方法内部实现细节
+		
+		findById(long id){
+			int num = findIndexById(id);
+			return num == -1?null:stus[num];
+		}
+		findIndexById()
+2. 继承
+	1. 仅支持单继承
+	2. 任何类在默认情况下直接或者间接继承Object类
+	3. 子类可以继承父类中属性和方法，但是不能继承构造函数
+	4. 继承通过【extends】完成继承
+	5. 当子类继承父类，创建子类对象的时候，要调用子类构造函数，而在子类的构造函数中会隐式调用父类的无参构造函数。当父类没有提供无参构造函数时，必须在子类构造函数中显式调用父类的有参构造函数。
+	
+	6. 为了简化开发，一般重载构造函数的时候一定要提供一个无参构造函数
 
 
+	public class Animal extends Object{
+		private String name;
+		private int age;
+	}
+	public class Dog extends Animal {
+		
+	}
+	public class Bird extends Animal{
+		
+	}
 
+
+3. 多态
+
+4. super
+	1)指向当前对象的父对象
+		super.setName();
+	2)指向当前类的父类
+		super();  调用父类的无参构造函数
+		该代码只能放在构造函数的第一行！
 
 ---------------------------------------
 CoreJava
