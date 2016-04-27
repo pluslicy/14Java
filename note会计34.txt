@@ -936,12 +936,10 @@ a.avi		  - 百度云盘
 			showArray();
 			System.arraycopy()
 			findIndexById();
-			
 	继承
 	多态
 2. 方法
-	访问修饰符 [其他修饰符] 返回值类型 方法名(参数列表) 
-		[throws Exception]{
+	访问修饰符 [其他修饰符] 返回值类型 方法名(参数列表) [throws Exception]{
 		
 	}
 	public static void main(String[] args){
@@ -973,22 +971,24 @@ a.avi		  - 百度云盘
 	默认	    ok		ok		
 	private	    ok		
 
+
 5. 方法/构造函数的重载
-	在同一个类中，两个方法的方法名相同，参数不同（参数的个数，参数类型，参数的顺序），返回值可以相同也可以不同。
+	在同一个类中，两个方法的方法名相同，参数不同（参数的个数，参数类型，参数的顺序），返回值类型可以相同也可以不同。
 
 	public int add(int a, int b){
 		return a+b;
 	}
-	public long add(int a, int b){
+	public long add(int a, int b)throw Exception{
 		return a+b;
 	}
 	public double add(int a,double b){
 		return a+b;
 	}
 6.	构造函数
-	构造函数的函数名和类名一直
+	构造函数的函数名和类名一致，构造函数没有返回值
 	构造函数的作用是用来初始化对象的，在创建对象的时候调用
 	构造函数也可以发生重载
+	在一个类中，如果没有显式声明构造函数，系统将自动提供一个无参的构造函数
 7. this
 	指当前对象
 		this.id
@@ -997,7 +997,31 @@ a.avi		  - 百度云盘
 		this(); 这行代码必须在构造函数中第一行
 		调用本类中的其他构造函数
 		
+--------------------------day15---------------
+继承
+	public class Animal {
+		private String name;
+		private int age;
+		public Animal(String name){
+		
+		}
+	}
+	public class Dog extends Animal{
+		public Dog(){
+			super("")
+		}
+	}
+	public class Bird extends Animal{
+		
+	}
+	0. 子类可以继承父类中的属性和方法，但是不能继承构造函数！
+	1. 通过 extends 关键字完成继承
+	2. 单继承！一个类只能有一个直接父类
+	3. 任何一个类要直接或者间接继承Object
+	4. 当创建子类对象的时候,需要调用子类构造函数，在所有子类构造函数中都会先调用父类的无参构造函数，假如父类中没有无参构造函数，必须在子类的构造函数中显式调用父类的有参构造函数。
 
+	Dog dog = new Dog();
+	
 
 . 重写
 
