@@ -100,18 +100,24 @@ public class Sms {
 		stus[--index] = null;
 	}
 	/**
-	  更新学生信息
+	  更新学生信息,id不能修改
 	  @author guoqi
-	  @author 学生对象
+	  @paran 学生对象
+	  1001:terry:12
+	  1001:TERRY:13
 	*/
 	public void update(Student newStu){
-	
+		for(int i=0;i<index;i++){
+			if(stus[i].getId() == newStu.getId()){
+				stus[i].setName(newStu.getName());
+				stus[i].setAge(newStu.getAge());
+			}
+		}
 	}
 
 	/**
 		菜单
 		@auhor
-
 	*/
 	public void menu(){
 		System.out.println("***********学生信息管理系统***********");
@@ -204,7 +210,30 @@ public class Sms {
 					break;
 				}
 				case "5":{
+					while(true){
+						System.out.println("请输入要修改学生的【id】或者输入【break】返回主目录");
+						String idStr = sc.nextLine();
+						if(idStr.equals("break")){
+							break;
+						}
+						//将字符串id转换为长整型
+						long id = Long.parseLong(idStr);
+						Student stu = sms.findById(id);
+						if(stu == null){
+							System.out.println("您要修改的学生信息不存在！");
+							continue;
+						}
 
+						System.out.println("您要修改的学生信息为："+stu);
+						System.out.println("请输入该学生的新信息【name#age】");
+						String stuStr = sc.nextLine();
+						String[] stuArr = stuStr.split("#");
+						String name = stuArr[0];
+						int age = Integer.parseInt(stuArr[1]);
+						Student newStu = new Student(id,name,age);
+						sms.update(newStu);
+						System.out.println("修改成功");
+					}
 					break;
 				}
 				case "exit":{

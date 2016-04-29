@@ -992,9 +992,8 @@ ios
 
 
 --------------------day13--------------------
-
 1. 彻底理解Sms
-2. 模仿Sms 完成 Tms
+2. 模仿Sms 完成 Tms(教师信息管理系统)
 3. 将Tms 上传到github
 
 班长将分组表电子版发给我
@@ -1002,3 +1001,92 @@ ios
 
   https://www.github.com/zhangsan
 
+--------------------------day14--------------------------
+面向对象
+
+	类		抽象的数据结构
+				人类
+				张三	张三是人类的一个对象，对象由类构类出来的
+	对象
+
+  类的成员：
+	属性
+	访问修饰符 [其他修饰符] 数据类型 属性名
+	private long id;
+
+	方法
+	访问修饰符 [其他修饰符] 返回值类型 方法名([参数列表]) [throws Exception]{
+		方法体
+	}
+		如果一个方法没有返回值，返回值类型必须为void
+		如果一个方法有返回值，返回值类型必须为能接收该值的类型
+		public float test(){
+			return 1.1;
+		}
+
+	构造函数
+	访问修饰符 类名([参数列表]){
+		构造函数体
+	}
+		当一个类中没有提供构造函数，系统将会提供一个无参构造函数
+
+	方法调用
+		1. 静态方法不能直接调用非静态方法
+		2. 非静态方法中可以直接调用非静态方法
+		3. 调用方法时候要传递实参
+		4.本质：
+			形式参数(变量的声明)
+			public void test2(String name){
+				System.out.println(name);
+			}
+			实参(为形参中变量初始化)
+			test2("hello");
+	参数传递：
+		1. 值传递
+			int a = 3;
+			syso(a);	//3
+			increment(a);//将a中保存的3复制一份给形参a
+			syso(a);	//3
+			public void increment(int a){
+				++a;
+			}
+		2. 引用传递（地址传递）
+			Student stu = new Student(1001,"terry");
+			syso(stu);	//terry
+			changeName(stu);//将stu中保存的内存地址拷贝给形参stu
+			syso(stu);	//BigName
+			public void changeName(Student stu){
+				stu.setName("BigName");
+			}
+
+	方法/构造函数重载：
+		在一个类中，两个方法:
+		1)方法名相同
+		2)参数不同（类型，个数，顺序）
+		返回值类型可以相同可以不同，那这样的两个方法称为方法重载
+
+1.面向对象的三大特征
+	1) 封装
+		构建类的过程就是封装
+		1.数据的隐藏
+			私有属性，公共setter,getter方法
+			统一访问私有属性的接口
+			private long id;
+			private String name;
+			public void setId(long id){
+				this.id = id;
+			}
+		2.方法封装
+			在一个类中，相同功能的代码如果出现两次，就要封装
+			findIndexById(long id);
+
+			int[] arr = new int[]{1,2,3,4,9,3,1};
+			showArr(arr);
+			public void showArr(int[] arr){
+				for(){
+				
+				}
+			}
+
+	2) 继承
+	3) 多态
