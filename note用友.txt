@@ -1003,7 +1003,6 @@ ios
 
 --------------------------day14--------------------------
 面向对象
-
 	类		抽象的数据结构
 				人类
 				张三	张三是人类的一个对象，对象由类构类出来的
@@ -1034,7 +1033,7 @@ ios
 		1. 静态方法不能直接调用非静态方法
 		2. 非静态方法中可以直接调用非静态方法
 		3. 调用方法时候要传递实参
-		4.本质：
+		4. 本质：
 			形式参数(变量的声明)
 			public void test2(String name){
 				System.out.println(name);
@@ -1063,7 +1062,7 @@ ios
 		在一个类中，两个方法:
 		1)方法名相同
 		2)参数不同（类型，个数，顺序）
-		返回值类型可以相同可以不同，那这样的两个方法称为方法重载
+		3)返回值类型可以相同可以不同，那这样的两个方法称为方法重载
 
 1.面向对象的三大特征
 	1) 封装
@@ -1087,6 +1086,82 @@ ios
 				
 				}
 			}
-
 	2) 继承
+		1.Java中通过 extends 关键字完成继承
+			public class Dog extends Animal{
+			
+			}
+		2.单继承（一个类只能有一个直接父类）
+		3.任何类都直接或者间接继承Object类，如果一个类没有继承其他类，那么它默认继承Object
+			public class Student{
+			
+			}
+		4.子类可以继承父类中的属性和方法，但是不可以继承构造函数
+			public class Animal{
+				private String name;
+				private int age;
+				// setter... getter...
+			}
+			public class Dog extends Animal{
+				
+			}
+			Dog dog = new Dog();
+			dog.setName("");
+			dog.getAge();
+
+		5.构建子类对象的时候需要调用子类构造函数，在子类构造函数中的第一行会默认调用父类的无参构造函数！假如父类中没有提供无参构造函数，这时子类必须在其构造函数中显式调用有参构造函数！
+
+		6.保证构件子类对象之前一定先构建父类对象！
+			子类对象中保存子类特有属性
+			父类对象中保存父类的属性
+
+
+	重写/覆盖：
+		发生在父子类中，子类重写父类的方法：
+		1. 方法名相同
+		2. 参数相同（个数，顺序，类型）
+		3. 返回值相同
+
+		4. 访问修饰符不能被缩小
+		5. 异常不能被放大
+
+		Object{
+			public String toString(){
+				System.out.prinltn(class@hashCode);
+			}
+		}
+		public class Animal{
+			public String toString(){
+				System.out.prinltn("");
+			}
+		}
+		Animal a = new Animal();
+		a.toString();
 	3) 多态
+		父类类型的引用指向子类对象,该引用只能调用父类中有的方法而不能调用子类中特有的方法，如果子类重写了父类中的方法，这时候体现子类特点
+
+		Aniaml animal = new Dog();
+	
+原则：
+	当为一个类提供有参构造函数的时候，务必显式提供无参构造函数
+
+访问修饰符
+  public
+  protected
+  默认
+  private 
+
+this&super
+	this
+		指向当前对象
+			this.name 
+			this.age 
+		指向当前类
+			this()
+	super
+		指向当前对象的父对象
+			super.name
+		指向当前类的父类
+			super()
+
+	
