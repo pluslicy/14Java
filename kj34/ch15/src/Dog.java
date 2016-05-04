@@ -12,8 +12,11 @@ public class Dog extends Animal {
 		super(name,age);
 		this.color = color;
 	}
-	protected void move(){
+	public void move(){
 		System.out.println(super.getName()+"正在奔跑");
+	}
+	public void kanmen(){
+		System.out.println(super.getName()+"正在看门");
 	}
 
 	public void setColor(String color){

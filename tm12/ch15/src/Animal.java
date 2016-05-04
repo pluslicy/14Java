@@ -13,6 +13,9 @@ public class Animal {
 		System.out.println("调用Animal的无参构造函数");
 	}
 
+	public void move(){
+		System.out.println(this.name+"正在移动....");	
+	}
 
 	public void setName(String name){
 		this.name = name;

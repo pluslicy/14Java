@@ -13,7 +13,17 @@ public class Dog extends Animal {
 		this.color = color;
 		System.out.println("调用Dog的有参构造函数");
 	}
-	
+	/**
+	  重写移动方法
+	*/
+	public void move(){
+		System.out.println(super.getName()+"正在奔跑~~~");
+	}
+	//
+	public void kanmen(){
+		System.out.println(super.getName()+"正在看门~~~");
+	}
+
 	public void setColor(String color){
 		this.color = color;
 	}

@@ -5,8 +5,14 @@ public class Test{
 		new Test().test1();	
 	}
 	public void test1(){
-		Dog dog = new Dog("一休",2,"金黄色");
+		Animal dog = new Dog("一休",2,"金黄色");
+		dog.move();
+		//dog.kanmen();
 
-		System.out.println(dog);
+
+		System.out.println("Bird:"+(dog instanceof Bird));
+		System.out.println("Dog:"+(dog instanceof Dog));
+		System.out.println("Animal:"+(dog instanceof Animal));
+		System.out.println("Object:"+(dog instanceof Object));
 	}
 }
