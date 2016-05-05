@@ -7,7 +7,7 @@ public class Animal {
 	public Animal(String name,int age){
 		this.name = name;
 		this.age = age;
-		System.out.println("Animal constructor");
+		System.out.println("Animal 有参构造函数");
 	}
 	public void move(){
 		System.out.println(this.name+"正在移动...");

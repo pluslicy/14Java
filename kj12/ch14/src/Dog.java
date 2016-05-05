@@ -8,21 +8,18 @@ public class Dog extends Animal {
 		System.out.println("dog constructor");
 	}
 	public Dog(String name,int age,String color){
-		this();
-		super.setName(name);
-		super.setAge(age);
+		super(name,age);
 		this.color = color;
+		System.out.println("dog 有参构造函数...");
 	}
-	
+	//重写父类的move方法
 	public void move(){
 		System.out.println(super.getName()+"正在奔跑！");
 	}
-
-	public void sleep(){
-		System.out.println(super.getName()+"正在休息！");
+	//特有的方法
+	public void kanmen(){
+		System.out.println(super.getName()+"正在看门！");
 	}
-
-
 	public void setColor(String color){
 		this.color = color;
 	}
