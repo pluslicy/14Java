@@ -1119,13 +1119,97 @@ a.avi		  - 百度云盘
 			2.在类加载阶段就先执行
 			
 	2) final
-	3) abstract
+		final类		最终类 String
+			不能被继承
+			public final class String{
+			
+			}
+			
+			Java核心技术 卷1
+			Java核心技术 卷2
+			Java编程思想
+			深入理解JVM
+		final属性	最终属性/常量
+			1.常量
+				不能二次赋值
+				final int a = 3;	//不能修改a的值
+			2.final属性
+				private final int a;//编译不同
+
+				解决方案
+				1) private final int a = 3;
+				2) private final int a ;
+				   构造函数(){
+					a = 3
+				   }
+			3.静态常量
+				private static final int c;//编译不同
+				1)private static final int c =3;
+				2)private static final int c;
+				  static{
+					c = 3;
+				  }
+		final方法	最终方法
+			不能被重写
+
+	3) abstract 抽象
+		抽象类（大内总管 - 宣旨 - 赈灾）
+			不能构建实例
+			用于让其他类来继承
+
+			如果子类继承抽象类，那么子类要么实现抽象类中的抽象方法（未实现的方法）。要么子类也有抽象类！
+		抽象方法(赈灾();)
+			没有方法体
+
+		抽象类中可以没有抽象方法，但是一个类中如果有抽象方法那这个类一定为抽象类
+
+		Servlet/Jsp
 
 2. 接口  interface
+	抽象类抽象到极致的一种表现
+		只允许存在
+			公共的抽象的方法
+			公共静态常量
+
+	public abstract class BaseService{
+	
+	}
+	public interface IBaseService{
+	
+	}
+	接口用来让子类实现（implements）的，接口的实现是多实现，也就说一个类可以实现多个接口。用来弥补Java单继承的缺陷！
+	public class StudentService extends Object 
+			implements IBaseService,IServlet {
+	}
 
 3. 访问修饰符
 	
 4. 内部类
+
+
+
+
+----------------------day17---------------------
+eclipse的使用
+1. 安装
+	某一个盘的根目录,新建一个文件夹
+	D:\briup
+	->
+	F:\briup\14Eclipses\kj34
+		jdk
+			path
+			CLASSPATH
+			JAVA_HOME
+		
+		eclipse		开发工具
+		workspace	工作空间
+
+
+
+
+
+
+
 
 
 

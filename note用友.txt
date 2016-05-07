@@ -1163,5 +1163,49 @@ this&super
 			super.name
 		指向当前类的父类
 			super()
+	instanceof
+		变量 instanceof 类
+		判断该变量指向的对象是否是该类的一个实例，返回值为boolean类型
 
-	
+		Animal a = new Dog();
+		a instanceof Bird;
+		a instanceof Dog;
+		a instanceof Aniaml;
+		a instanceof Object
+
+----------------------day16--------------------------
+
+面向对象（基本）
+	1.三大基本特征
+		封装
+		继承
+		多态
+	2.重写&重载
+	3.关键字
+		this
+		super
+		extends
+		instanceof
+面向对象（高级）
+	属性
+	访问修饰符 [特殊修饰符] 类型 属性
+
+	1.特殊修饰符
+	  static(静态 - 类)
+		静态属性
+			1.在类加载的时候初始化
+			2.可以通过类名直接调用
+			3.静态属性属于类而属于对象，多个对象共享一个静态属性
+		静态方法
+			1.在类加载的时候初始化
+			2.可以通过类名直接调用
+			3.在静态方法中不能调用非静态属性和非静态方法
+		静态代码块
+			1. 初始化类的
+			2. 在类加载的时候执行
+	  final(最终)
+		类		：不能被继承 String
+		变量
+		方法
+
+	  abstract(抽象)
