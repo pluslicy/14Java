@@ -1176,6 +1176,8 @@ ch13作业
 
 面向对象（高级）
 1.特殊修饰符
+	能修饰谁？修饰之后有什么效果？
+
 	1)static（静态--类）
 		静态属性
 			1.在类加载的时候初始化
@@ -1185,21 +1187,74 @@ ch13作业
 		静态方法
 			1.在类加载的时候初始化
 			2.可以通过类名直接调用
+			3.静态方法中不允许调用非静态方法和非静态属性
 
 		静态代码块
+			static{
+			
+			}
+			构造函数作用是初始化对象
+			静态代码块作用是初始化类的。在类加载的时候执行
+
 	2)final
-	3)abstract
+		final类
+			不能被继承（String）
+			public final class String{
+			
+			}
+		final属性/常量
+			只允许赋值一次。
+			1. final变量 常量
+				final int a;
+				a = 3;
+				a = 4;//编译出错！
+			2. final属性
+				在使用final属性之前一定要先自定义初始化！
+				class Person{
+					final int a ;  //编译出错
+					1) final int a = 3;
+					2) final int a ;
+					   Person(){
+						a = 3;
+					   }
+				}
+			3. 静态常量 
+				class Person{
+					static final int a ;  //编译出错
+					1) static final int a = 3;
+					2) static final int a ;
+					   Person(){
+						a = 3;
+					   }
+				}
+
+		final方法
+			不能被重写
+
+	3)abstract抽象
+		抽象类（大内总管类）
+			1.不能实例化
+			2.只能被子类继承，子类可以调用抽象类中的方法
+			3.抽象类的子类必须实现抽象类中的抽象方法
+			4.抽象类中可以没有抽象方法，但是如果有抽象方法这个类一定为抽象类
+
+			宣旨 张三 赈灾
+
+		抽象方法
+			1.没有方法体
 
 	4. 接口
+		抽象类抽象到极致的一种表现
+		用来定义标准
+			只存在
+				1.公共的抽象的方法
+				2.公共的静态常量
+					public static final 
+		可以让子类实现自己
+		Java是单继承，但是是多实现
 
-	5. 内部类
-
-
-
-
-
-
-
+		public class Person implement Student{}
+		public interface Person{}
 
 	接口
 	单继承多实现
@@ -1213,7 +1268,12 @@ ch13作业
 		Weapean w = new CcCar();
 		Ship s = new CcCar();
 
+API
+	集合
+	异常
+	jdbc
 
+	项目
 
 
 

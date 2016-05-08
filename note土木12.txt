@@ -1208,18 +1208,83 @@ CoreJava
 		final类（String）
 			不能被继承(放置子类重写它的方法)
 		final方法
-			不能被重写
-
+			不能被子类重写
 		final变量/常量
-			不能被修改
-			
+			只能赋值一次，不能被修改
+			final int a = 3;
+			a = 4;//编译出错
 
+		final属性
+			public final int a ;//编译出错！
+
+			1)自定义初始化
+				public final int a  = 3;
+			2)在每个构造函数中初始化
+				public final int a ;
+				构造函数(){
+					a = 3
+				}
+			本质是在调用该变量时，务必要为该变量自定义初始化
+		static final 属性
+			public static final int a ;//编译出错！
+
+			1)自定义初始化
+				public static final int a  = 3;
+			2)在每个构造函数中初始化
+				public static final int a ;
+				static{
+					a = 3
+				}
+			本质是在调用该变量时，务必要为该变量自定义初始化
 		
-	3) abstract
+	3) abstract 抽象
+		1. 抽象类（大内总管类）
+			1)不能实例化（不能创建对象）
+			2)存在的意义是让子类继承
+			3)抽象类中可以没有抽象方法，但是如果一个类中有抽象方法，那么这个类一定为抽象类。
+			4)如果子类继承了抽象类，这个抽象类中有抽象方法，那么子类实现父类中的抽象方法，要么子类也为抽象类
+			
+		2. 抽象方法
+			抽象方法没有方法体
 2. 接口
+	抽象类抽象到极致就是接口
+		只允许存在：
+			公共静态常量public static final
+			公共的抽象方法 public abstract
+				
+	接口的产生是为了弥补Java单继承的缺陷，在Java中一个类只能有一个直接父类，但是可以有多个父接口
+	
+	接口可以继承接口
+	类实现接口，实现的时候使用implements关键字
+	public interface Children(){
+		
+	}
 
 3. 访问修饰符
+	public		本类	同包	父子类	其他类
+	protected	本类	同包	父子类
+	默认		本类	同包
+	private		本类
 
-4. 内部类
-	静态内部类
+
 	
+----------------------------day17----------------------
+1. eclipse  (MyEclipse 收费)
+	1)百度 eclipse 官网  绿色免安装
+	2)安装（解压缩）
+	3)D:/briup
+		eclipse		IDE 工具
+		workspace	工作空间，用于存放源代码
+	4)切换视图  ->Java
+	5)初始化设定
+		1.encoding    UTF-8
+		2.视觉效果		font
+
+google
+	阿尔法  围棋
+	大数据
+	无人驾驶
+	......
+
+----------------------------
+jdbc
