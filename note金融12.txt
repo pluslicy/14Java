@@ -1204,10 +1204,90 @@ import
 	1)抽象类
 		1. 抽象类不能构建对象
 		2. 抽象类中可以没有抽象方法，但是一个类中如果有抽象方法，那么这个类一定是抽象类
-		3. 子类继承抽象类，那么子类要么实现父类中所有未实现的方法，要么自身也为抽象类
-	2)抽象方法
+		3. 抽象类的存在意义为子类定义标准和服务的
+		4. 子类继承抽象类，那么子类要么实现父类中所有未实现的方法，要么自身也为抽象类
+	2)抽象方法/未实现方法
 		1. 抽象方法没有方法体
+			public abstract void test1();
 	    
+4.Interface	接口（特殊的抽象class）
+	接口是抽象类抽象到极致的表现
+	1)在接口中所有的方法都为公共的抽象的方法，并且默认会被public abstract修饰
+	2)在接口中所有的属性都为公共的静态常量，并且默认会被public static final修饰
+	
+	子类继承父类  extends
+	=>
+	子类实现接口 implements
+
+	接口的出现是为了弥补Java单继承的缺陷，在Java中，
+	单继承多实现！
 
 
+	Children 抽象类     Teacher 接口  Student接口
+
+			public class Person extends Children implements Teacher,Student{
 			
+			}
+
+
+----------------day17----------------
+
+elipse开发环境搭建	myeclipse(收费)
+1. jdk安装
+2. eclipse		解压即安装
+3. workspace	存放源码
+4. 打开eclipse进行初始化操作
+	1)指定workspace
+	2)指定编码	UTF-8
+	3)设置字体
+
+------------------
+集合体系
+	java.util.*
+	数组：具有相同数据类型的集合
+		数组的长度一旦指定不能改变
+		数组中只能保存相同数据类型的值
+	容器
+	
+	Collection		Map
+  Set	   List	
+  
+
+  Set
+	无序不可以重复的集合
+	HashSet	使用hash算法实现
+	TreeSet 使用红黑树算法实现
+  List
+	有序可以重复的集合
+	ArrayList	单向链表
+	LinkedList	双向链表
+  Map
+	键值对
+	HashMap
+	TreeMap
+
+
+
+
+
+
+--------------------------------------
+1. CoreJava
+	基本语法
+	面向对象
+	API（sun公司）
+
+
+2. Servlet/jsp
+	网站
+	公司网站
+	选课系统
+
+3. SSH 企业级开发
+	找工作，12306
+
+	花旗银行
+	晋商银行
+
+	综合素质 + 技术技能
+

@@ -1057,22 +1057,94 @@ JavaProject
 		静态属性
 			1.在类加载的时候初始化
 			2.可以通过类名直接调用静态属性
+			3.静态属性是属于一个类的，而不属于一个对象，多个对象共享一个静态属性。
+
 			public static int b;
 
 		静态方法
 			1.在类加载的时候初始化
-			2.可以通过类名直接调用静态属性
+			2.可以通过类名直接调用静态方法
+			3.静态方法不允许调用非静态方法和非静态属性
+
 			public static void test1(){
 			
 			}
 		静态代码块
+			1.在类加载的时候执行
+			2.用于初始化类的
 			static{
 			
 			}
 		静态内部类
 			...
 	2)final
+		final类 String
+			不能被继承
+
+		final属性
+			只能初始化一次
+			在使用之前必须要自定义初始化
+
+			public final int a ;//编译错误
+			1)public final int a = 3 ;
+			2)public final int a ;
+			  public Person(){
+				a = 3;
+			  }
+			
+			静态常量 static final
+			public static final int c;
+			1)public static final int c = 1;
+			2)public static final int c ;
+			  static{
+				c = 3 ;
+			  }
+		final局部变量
+			常量，只能初始化一次
+
+		final方法
+			不能被子类重写
+
 	3)abstract
+		抽象类
+			1.不能实例化（不能创建对象）
+			2.存在的意义是让子类继承，为子类提供标准或者服务。
+
+		抽象方法
+			1.没有方法体
+			2.如果一个类中有抽象方法，那这个类一定是抽象类。但是抽象类中可以没有抽象方法。抽象类中可以有具体的方法
+
+2. interface 接口
+	抽象类抽象到极致的表现就是接口
+	在接口中只允许存在：
+		1)公共的静态常量 public static final
+		2)公共的抽象方法 public abstract
+
+	如果接口中一个属性没有显式被public static final修饰，系统会默认用public static final修饰
+	如果接口中一个方法没有显式被public abstract修饰，系统会默认用public abstract
+	
+	接口的存在时为了弥补Java单继承的缺陷，在Java中一个类只能有一个直接父类，但是可以有多个父接口
+	单继承多实现
+
+	一个类如果实现一个接口，那么必须实现这个接口中的所有未实现的方法
+
+
+
+	public interface Student{
+	
+	}
+	实现接口
+	public class Person implements Student{
+	
+	}
+	
+
+
+
+
+
+
+
 
 
 
