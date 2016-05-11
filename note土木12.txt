@@ -1265,8 +1265,6 @@ CoreJava
 	protected	本类	同包	父子类
 	默认		本类	同包
 	private		本类
-
-
 	
 ----------------------------day17----------------------
 1. eclipse  (MyEclipse 收费)
@@ -1286,5 +1284,99 @@ google
 	无人驾驶
 	......
 
-----------------------------
-jdbc
+-----------------------day18----------------------------
+	基本语法 -> 面向对象 -> API（sun公司写的代码）
+
+集合体系（java.util.*）
+	容器
+	应用一定的算法+数组封装的类
+	1. 可以存放任何引用数据类型的值
+	2. 长度可以自动增长！
+
+
+	数组：存放相同数据类型值的集合。数组的长度一旦指定不能更改。底层数据结构  sms
+
+	Collection			Map
+	Set		List	
+
+	Set
+		无序不可以重复的集合
+		HashSet:	使用hash算法实现的
+
+		TreeSet（了解）
+	List	
+		有序可以重复的集合
+		ArrayList:	单链表结构
+
+		LinkedList: 双向链表结构（了解）
+	Map	
+		存放键值对的集合。key值是无序不可以重复的
+		HashMap
+
+		TreeMap(了解)
+
+		key  --> value
+		1001    张三
+		1002    李四
+
+
+1. 如何创建集合
+	Set
+		Set<String> set = new HashSet<String>();
+	List
+		List<Integer> list = new ArrayList<Integer>();
+	Map
+		Map<Integer, Student> map = new HashMap<Integer, Student>();
+2. 如何往集合中添加元素
+	Set
+		set.add("terry");
+	List
+		list.add(3);
+	Map
+		map.put(key,val);
+
+3. 如何获取集合中的元素
+	Set
+		无法获取单个元素
+	List
+		list.get(index)
+	Map
+		map.get(key);
+
+4. 如何删除集合中的元素
+	Set 
+		set.remove("terry");
+	List
+		list.remove(index);
+		list.remove("值");
+
+5. 如何遍历集合中的元素
+	Set 
+		1)迭代器
+		Iterator<String> iter = set.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+		2)foreach
+		for(String val : set){
+			System.out.println(val);
+		}
+	List
+		1)foreach
+		for(int val : list){
+			System.out.println(val);
+		}
+		2)for
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i));
+		}
+		3)迭代器
+		Iterator<Integer> iter = list.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+
+
+
+
+

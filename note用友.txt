@@ -1204,8 +1204,100 @@ this&super
 			1. 初始化类的
 			2. 在类加载的时候执行
 	  final(最终)
-		类		：不能被继承 String
-		变量
-		方法
+		final类		：不能被继承 String
+		final变量	: 只能自定义初始化一次，不能修改
+		final属性	: 只能自定义初始化一次，不能修改
+			在使用final属性之前务必保证final属性已经做了自定义初始化。
+
+			public final int b;//编译不通过
+			
+			1)public final int b = 3;
+			2)public final int b;
+			  构造函数(){
+				b = 3;
+			  }
+			
+			静态常量 static final
+			public static final int b;//编译不通过
+			1)public static final int bb = 3;
+			2)public static final int b;
+			  static{
+				b = 3;
+			  }
+		final方法	: 不能被子类重写
 
 	  abstract(抽象)
+		抽象类
+			1.抽象不能实例化（创建对象）
+			2. 抽象类的作用是为子类提供服务和标准的
+			3. 子类继承抽象类，如果父类中有未实现的方法，那么子类有两种选择，要么实现父类中所有未实现的方法，自身变为普通类；要么不实现父类中的未实现方法，自身也变为抽象类。
+			4. 抽象类中可以有具体方法
+
+		抽象方法
+			1.抽象方法没有方法体
+				public abstract void test1();
+			2.如果一个类中有抽象方法，那么这个类一定是抽象类
+
+	2. 接口
+		抽象类抽象到极致的表现
+		接口中只允许存在
+			1)公共的抽象的方法
+				方法默认被public abstract修饰
+			2)公共的静态的常量
+				属性默认被public static final 修饰
+		接口的出现是为了弥补Java单继承的缺陷
+		Java是单继承(extends),多实现(implements)
+
+		public interface Student(){
+		
+		}
+		public class Person implements Student{
+		
+		}
+
+			class Person extends Student implemets
+									Children,Teacher{
+			
+			}
+		
+------------------------------------
+  基础语法  ->	面向对象 ->	API(sun公司写的代码)  C/S
+
+  Servlet/JSP	B/S
+
+  SSH	就业 （支付宝）
+
+工具
+  学生信息管理系统
+
+集合体系
+	容器
+	java.util.*
+		数组：存放相同数据类型的集合。
+		Student[] stus = new Student[3];
+	集合
+		1)只能存放引用数据类型
+		2)同一个集合中能存放任意引用数据类型
+
+	Collection				Map
+  Set		List		
+ HashSet	ArrayList		HashMap
+ TreeSet	LinkedList		TreeMap
+
+
+  Set
+    无序不可以重复的集合
+	HashSet
+		使用Hash算法来实现的
+	TreeSet
+		使用红黑树算法来实现的，可以排序
+  List
+	有序的可以重复的集合
+	ArrayList	
+		单链表结构
+	LinkedList
+		双向链表结构
+  Map 
+	键值对
+	HashMap
+	TreeMap

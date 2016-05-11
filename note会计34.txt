@@ -1134,6 +1134,7 @@ a.avi		  - 百度云盘
 				不能二次赋值
 				final int a = 3;	//不能修改a的值
 			2.final属性
+				在使用final属性或者final变量之前先做自定义初始化
 				private final int a;//编译不同
 
 				解决方案
@@ -1154,38 +1155,53 @@ a.avi		  - 百度云盘
 
 	3) abstract 抽象
 		抽象类（大内总管 - 宣旨 - 赈灾）
-			不能构建实例
-			用于让其他类来继承
-
-			如果子类继承抽象类，那么子类要么实现抽象类中的抽象方法（未实现的方法）。要么子类也有抽象类！
+			1)不能构建实例
+			2)用于让其他类来继承
+			3)如果子类继承抽象类，那么子类要么实现抽象类中的所有的抽象方法（未实现的方法）。要么子类也有抽象类！	
+				public abstract class Parent{
+				
+				}
 		抽象方法(赈灾();)
-			没有方法体
+			1)没有方法体
+			2)被abstract修饰
+				public absstract void study();
+			3)抽象类中可以没有抽象方法，但是一个类中如果有抽象方法那这个类一定为抽象类
 
-		抽象类中可以没有抽象方法，但是一个类中如果有抽象方法那这个类一定为抽象类
-
-		Servlet/Jsp
 
 2. 接口  interface
-	抽象类抽象到极致的一种表现
-		只允许存在
-			公共的抽象的方法
-			公共静态常量
+		1)抽象类抽象到极致的一种表现
+		2)只允许存在
+			公共的抽象的方法,所有的方法默认被public abstract修饰
 
-	public abstract class BaseService{
-	
-	}
-	public interface IBaseService{
-	
-	}
-	接口用来让子类实现（implements）的，接口的实现是多实现，也就说一个类可以实现多个接口。用来弥补Java单继承的缺陷！
-	public class StudentService extends Object 
-			implements IBaseService,IServlet {
-	}
+			公共静态常量，所有的属性默认被public static final修饰
+
+			public abstract class BaseService{
+			
+			}
+			public interface IBaseService{
+			
+			}
+		3)接口用来让子类实现（implements）的，接口的实现是多实现，也就说一个类可以实现多个接口。用来弥补Java单继承的缺陷！
+			public class Person extends Student
+					implements Children,Teacher {
+			}
 
 3. 访问修饰符
-	
-4. 内部类
+	public		本类	同包	父子类	其他类
+	protected	本类	同包	父子类
+	默认		本类	同包
+	private		本类
 
+
+	金融方向：	银行软件开发
+	保险方向：	保险公司软件开发
+	ERP		:	进销存...... 浪潮,用友,医疗系统
+	其他方向：	
+	......
+	互联网+背景
+
+
+	综合素质+专业技能！
 
 
 
@@ -1203,6 +1219,77 @@ eclipse的使用
 		
 		eclipse		开发工具
 		workspace	工作空间
+
+
+--------------------day18--------------------------
+基本语法  -->  面向对象  -->  API(sun公司写的代码)
+
+集合体系
+	数组：存放相同数据类型的集合，长度一旦指定不能更改
+
+	1.	使用各种 算法+数组 封装成的一种Java类
+	2.  集合没有长度限制。
+	3.  集合中可以存放任意引用数据类型
+
+    java.util.*;
+
+	Collection			Map
+	Set	   List			
+	
+	Set
+		无序不可以重复的集合
+		HashSet	使用hash算法实现的
+
+	List
+		有序可以重复的集合
+		ArrayList	使用单链表结构实现的
+
+	Map
+		键值对形式存在的集合
+		HashMap 使用hash算法实现的
+
+
+
+1. 集合的创建
+	Set
+		Set<String> set = new HashSet<String>();
+		
+	List
+		List<String> list = new ArrayList<String>();
+
+		
+
+
+2. 向集合中添加元素
+	Set	
+		set.add("terry");
+	List
+		list.add("terry");
+
+3. 从集合中移除元素
+	Set	
+		set.remove("terry");
+
+4. 从集合中获取指定元素
+	Set
+		无法获取单个值
+
+5. 遍历集合
+	Set
+		1)迭代器
+		Iterator<String> iter = set.iterator();
+		while(iter.hasNext()){
+			String val = iter.next();
+			System.out.println(val);
+		}
+		2)增强for循环
+		for(String val : set){
+			System.out.println(val);
+		}
+	
+
+
+
 
 
 

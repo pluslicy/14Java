@@ -1248,6 +1248,9 @@ elipse开发环境搭建	myeclipse(收费)
 		数组的长度一旦指定不能改变
 		数组中只能保存相同数据类型的值
 	容器
+		同一个集合中可以存放任意数据类型的值
+		集合的长度可以动态增长
+		集合只能存放引用数据类型的值
 	
 	Collection		Map
   Set	   List	
@@ -1256,15 +1259,54 @@ elipse开发环境搭建	myeclipse(收费)
   Set
 	无序不可以重复的集合
 	HashSet	使用hash算法实现
-	TreeSet 使用红黑树算法实现
+	TreeSet 使用红黑树算法实现（了解）
   List
 	有序可以重复的集合
 	ArrayList	单向链表
-	LinkedList	双向链表
+	LinkedList	双向链表（了解）
   Map
 	键值对
 	HashMap
-	TreeMap
+	TreeMap（了解）
+	
+----------------day18----------------
+1.集合对象的创建
+	Set
+		Set<String> set  = new HashSet<String>();
+	List
+		List<Interger> list = new ArrayList<Integer>();
+2.向集合中添加元素
+	Set
+		set.add("hello");
+	List
+		list.add(1);
+3.获取集合中元素	
+	Set
+		set无法获取单个元素
+	List
+		通过索引获取
+		list.get(index);
+
+4.遍历集合
+	Set
+		1)迭代器
+			set使用迭代器遍历 Iterator
+			Iterator<String> iter = set.iterator();
+			while(iter.hasNext()){
+				//获取下一个
+				String str = iter.next();
+			}
+		2)foreach
+			for(String str : set){
+			
+			}
+	List
+		1)for
+		2)foreach
+		3)迭代器
+
+
+
 
 
 
