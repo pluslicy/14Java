@@ -1278,11 +1278,19 @@ this&super
 	集合
 		1)只能存放引用数据类型
 		2)同一个集合中能存放任意引用数据类型
-
-	Collection				Map
-  Set		List		
+		
+				集合体系
+	Collection（接口）		Map（接口）
+  Set（接口）List（接口）		
  HashSet	ArrayList		HashMap
+
  TreeSet	LinkedList		TreeMap
+
+  迭代器接口
+	Iterator iter
+		iter.hasNext()	判断是否有下一个元素
+		iter.next()		获取下一个元素
+		iter.remove()	删除下一个
 
 
   Set
@@ -1301,3 +1309,85 @@ this&super
 	键值对
 	HashMap
 	TreeMap
+
+1. 集合对象的创建
+	Set
+		Set<String> set = new HashSet<String>();
+	
+	List
+		List<Student> list = new ArrayList<Student>();
+
+	Map
+		Map<Integer, String> map = new HashMap<Integer, String>();
+
+2. 如何向集合中添加元素
+	Set
+		set.add("terry");
+	List
+		list.add(element);
+		list.add(index,element);
+
+	Map
+		map.put(key,val);
+
+3. 如何获取集合中指定元素
+	Set
+		无法
+	List
+		list.get(index);
+	Map
+		map.get(key);
+
+4. 如何从集合删除元素
+	Set
+		set.remove(element);
+	List
+		list.remove(index);
+		list.remove(element);
+	Map
+		map.remove(key);
+
+5. 如何遍历集合
+	Set
+		1)迭代器
+		Iterator<String> iter = set.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+		2)foreach
+		for(String val : set){
+			System.out.println(val);
+		}
+	List
+		1)迭代器
+		Iterator<Student> iter = list.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+		2)foreach
+		for(Student st : list){
+			System.out.println(st);
+		}
+		3)for
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i));
+		}
+	Map	
+		1)keySet
+		Set<Integer> keys = map.keySet();
+		Iterator<Integer> iter = keys.iterator();
+		while(iter.hasNext()){
+			int key = iter.next();
+			String val = map.get(key);
+			System.out.println(key+"==="+val);
+		}
+		2)values
+		Collection<String> vals = map.values();
+		for(String val : vals){
+			System.out.println(val);
+		}
+---------------------------------------------
+异常
+
+
+

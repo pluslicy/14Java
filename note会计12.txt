@@ -1275,6 +1275,132 @@ API
 
 	项目
 
+API
+	java.lang
+		String
+		Date
+		Byte
+		Short
+		Integer
+		Long
+		Float
+		Double
+		Boolean
+		Character
+		Object
+	java.util
+		Scanner
 
 
+
+
+集合体系
+	java.util.*
+
+	1.存放任意引用数据类型的对象。
+	2.长度可以动态增长
+	3.集合： 算法+数组 封装的类
+
+
+	数组：存放相同数据类型的集合，数组的长度一旦指定不能更改。
+
+	Collection			Map
+	Set		List
+
+	Set
+		无序不可以重复的集合
+		HashSet
+		TreeSet(了解)
+
+	List
+		有序可以重复的集合
+		ArrayList	
+		LinkedList(了解)
+	Map
+		键值对集合，key是无序不可以重复
+		HashMap
+		TreeMap(了解)
+
+迭代器：Iterator
+
+1. 创建集合对象
+	Set	
+		Set<String> set = new HashSet<String>();
+
+	List	
+		List<String> list = new ArrayList<String>();
+
+	Map
+
+2. 如何向集合中添加元素
+	Set
+		set.add("terry");
+
+	List
+		list.add("terry");
+		list.add(1,"vicky");
+
+	Map
+
+3. 如何从集合中获取指定元素
+	Set
+		无法获取
+	List
+		list.get(index);
+
+	Map
+
+4. 如何从集合中删除元素
+	Set
+		set.remove("terry");
+	List
+		list.remove(index);
+		list.remove(val);
+	Map
+
+5. 遍历
+	Set
+		1)迭代器
+			Iterator<String> iter = set.iterator();
+			while(iter.hasNext()){
+				System.out.println(iter.next());
+			}
+		2)foreach
+			for(String str : set){
+				System.out.println(str);
+			}
+	List
+		1)迭代器
+		2)foreach
+		3)for
+
+	Map
+
+
+	软件会计
+	软件金融
+	-----------------------------------------
+		1.金融方向
+			花旗
+			中国工商
+			中国建设银行
+			中国农业银行
+			晋商银行
+		2.保险
+			五险一金
+			强险
+			中国平安
+			人寿
+			太平洋
+		3.ERP
+			用友
+			浪潮
+		4.电商
+			阿里
+		5.其他
+			教育
+			医疗
+			...
+
+			
 
