@@ -1232,7 +1232,7 @@ eclipse的使用
 	3.  集合中可以存放任意引用数据类型
 
     java.util.*;
-
+			  集合体系
 	Collection			Map
 	Set	   List			
 	
@@ -1248,32 +1248,46 @@ eclipse的使用
 		键值对形式存在的集合
 		HashMap 使用hash算法实现的
 
+	Iterator
+		hasNext()  用于判断集合中是否还有下一个元素
+		next()		获取下一个元素
+		remove()	将下一个元素删除
+			当在遍历集合的时候想要删除某一个元素，只能用该方法
 
 
 1. 集合的创建
 	Set
+		//泛型  限制set中元素的类型
 		Set<String> set = new HashSet<String>();
-		
 	List
 		List<String> list = new ArrayList<String>();
-
-		
-
+	Map
+		Map<Integer, String> map = new HashMap<Integer, String>();
 
 2. 向集合中添加元素
 	Set	
-		set.add("terry");
+		set.add(element);
 	List
-		list.add("terry");
+		list.add(element);
+		list.add(index,element);
+	Map
+		map.put(key,val);
 
 3. 从集合中移除元素
 	Set	
-		set.remove("terry");
-
+		set.remove(elenment);
+	List
+		list.remove(index);
+		list.remove(element);
+	Map
+		map.remove(key);
 4. 从集合中获取指定元素
 	Set
 		无法获取单个值
-
+	List	
+		list.get(index);
+	Map
+		map.get(key);
 5. 遍历集合
 	Set
 		1)迭代器
@@ -1286,9 +1300,57 @@ eclipse的使用
 		for(String val : set){
 			System.out.println(val);
 		}
-	
+	List
+		1)迭代器
+		Iterator<String> iter = list.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+		2)增强for循环
+		for(String str:list){
+			System.out.println(str);
+		}
+		3)for
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i));
+		}
+	Map
+		李宁  跑步社区 电子商务 购物车
+		1)keys
+		Set<Integer> keys = map.keySet();
+		for(int key : keys){
+			String val = map.get(key);
+			System.out.println(key+"="+val);
+		}
+		2)values
+		Collection<String> values = map.values();
+		for(String val : values){
+			System.out.println(val);
+		}
 
 
+----------------------day19------------------------
+1. 原理
+	try{
+		代码1
+	}catch(ArrayIndexOutOfBoundsException e){
+		System.out.println("救火");
+	}catch (ArithmeticException e) {
+		System.out.println("找孩子");
+	}
+
+		try{
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+
+当代码1发生异常，程序不会终止，而是执行异常处理代码
+
+2.自定义异常类
+	1.　新建一个类
+	2.　继承java.lang.Exception
+	3.  根据父类构造函数构建自己的构造函数
 
 
 
