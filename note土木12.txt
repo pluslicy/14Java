@@ -1295,24 +1295,35 @@ google
 
 
 	数组：存放相同数据类型值的集合。数组的长度一旦指定不能更改。底层数据结构  sms
+		
+	Collection(接口)			Map(接口)
+		clear()					clear()
+		add()					remove(key)
+		remove()				put(key,val)
+		iterator()				size()
+		isEmpty()				isEmpty()
+		size()					keySet()	返回所有的key	Set
+								values()	返回所有的value	Collection
+	Set(接口)	List(接口)
+	HashSet		ArrayList		HashMap
+	
 
-	Collection			Map
-	Set		List	
+	Iterator	迭代器
+		hasNext()	用于判断集合中是否有下一个元素
+		next()		用于获取下一个元素
+		remove()	移除下一个元素
 
 	Set
 		无序不可以重复的集合
 		HashSet:	使用hash算法实现的
-
 		TreeSet（了解）
 	List	
 		有序可以重复的集合
 		ArrayList:	单链表结构
-
 		LinkedList: 双向链表结构（了解）
 	Map	
 		存放键值对的集合。key值是无序不可以重复的
 		HashMap
-
 		TreeMap(了解)
 
 		key  --> value
@@ -1321,6 +1332,7 @@ google
 
 
 1. 如何创建集合
+		泛型
 	Set
 		Set<String> set = new HashSet<String>();
 	List
@@ -1348,35 +1360,76 @@ google
 		set.remove("terry");
 	List
 		list.remove(index);
-		list.remove("值");
-
+		list.remove(element);
+	Map
+		map.remove(key);
 5. 如何遍历集合中的元素
 	Set 
 		1)迭代器
-		Iterator<String> iter = set.iterator();
-		while(iter.hasNext()){
-			System.out.println(iter.next());
-		}
+			Iterator<String> iter = set.iterator();
+			while(iter.hasNext()){
+				System.out.println(iter.next());
+			}
 		2)foreach
-		for(String val : set){
-			System.out.println(val);
-		}
+			for(String val : set){
+				System.out.println(val);
+			}
 	List
 		1)foreach
-		for(int val : list){
-			System.out.println(val);
-		}
+			for(int val : list){
+				System.out.println(val);
+			}
 		2)for
-		for(int i=0;i<list.size();i++){
-			System.out.println(list.get(i));
-		}
+			for(int i=0;i<list.size();i++){
+				System.out.println(list.get(i));
+			}
 		3)迭代器
-		Iterator<Integer> iter = list.iterator();
-		while(iter.hasNext()){
-			System.out.println(iter.next());
-		}
+			Iterator<Integer> iter = list.iterator();
+			while(iter.hasNext()){
+				System.out.println(iter.next());
+			}
+	Map
+		1)keys
+			Set<Integer> keys = map.keySet();
+			for(int key : keys){
+				Student val = map.get(key);
+				System.out.println(key+"="+val);
+			}	
+		2)values
+			Collection<Student> values = map.values();
+			Iterator<Student> iter = values.iterator();
+			while(iter.hasNext()){
+				System.out.println(iter.next());
+			}
 
+----------------day19---------------
+1. 语法
+	try{
+		代码1	
+	}catch(异常变量的声明){
+		代码2
+	}finally{
+		代码3
+	}
 
+	当代码1中有异常发生，立刻停止代码1后面代码的运行，转而执行代码2，最终执行代码3
 
+	try{
+	
+	}finally{
+	
+	}
 
+	try{
+	
+	}catch(){
+	
+	}
 
+----------------作业------------------
+1. 基于数组的学生信息管理系统
+2. 基于集合的学生信息管理系统
+3. 超级无敌学生信息管理系统
+4. mysql安装
+
+5. jdbc操作
