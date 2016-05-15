@@ -1133,13 +1133,137 @@ JavaProject
 	public interface Student{
 	
 	}
+
 	实现接口
 	public class Person implements Student{
 	
 	}
 	
+------------------------day17----------------------
+基本语法 --> 面向对象 --> API(SUN公司写好的代码)
+
+集合体系：
+	1.存放任意引用数据类型值的对象，容器。
+	2.使用一定的 算法 + 数组 实现的
+	3.长度可以动态增长
+
+	数组
+		存放相同数据类型值的集合。长度一旦指定不能更改
+
+	java.util.*
+
+	接口
+		1.不能创建对象
+		2.为子类提供标准
+		3.抽象，静态常量
+	
+	Collection(接口)			Map(接口)
+		add()
+		remove()
+		iterator()
+		size()
+		contains()
+	Set(接口)	List(接口)
+	HashSet		ArrayList		HashMap
+
+	Iterator	迭代器接口
+		hasNext()
+		next()
+		remove()
 
 
+	
+	Set
+		无序不可以重复的集合
+		HashSet
+
+	List
+		有序可以重复的集合
+		ArrayList
+
+	Map
+		键值对集合
+		HashMap
+
+----------------------集合的使用-----------------
+1.如何创建集合对象
+	Set
+		Set<String> set = new HashSet<String>();
+	List
+		List<Student> list = new ArrayList<Student>();
+	Map
+		Map<Integer, String> map = new HashMap<Integer, String>();
+
+2.如何向集合中添加元素
+	Set
+		set.add(element);
+	List
+		list.add(element);
+		list.add(index,element);
+	Map
+		map.put(key,val);
+
+3.如何获取集合中的元素
+	Set
+		无法直接获取
+	List
+		list.get(index);
+	Map
+		map.get(key);
+		
+
+4.如何删除集合中的元素
+	Set
+		set.remove(element);
+	List
+		list.remove(element);
+		list.remove(index);
+	Map
+		map.remove(key);
+
+5.如何遍历集合中的元素
+	Set	
+		1)迭代器
+		Iterator<String> iter = set.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+		2)foreach  增强for循环
+		System.out.println("------------");
+		for(String val : set){
+			System.out.println(val);
+		}
+	List
+		1)迭代器
+		Iterator<Student> iter = list.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+		2)foreach
+		for(Student stu :list){
+			System.out.println(stu);
+		}
+		3)for
+		for(int i=0;i<list.size();i++){
+			System.out.println(list.get(i));
+		}
+	Map
+		1)keys
+		Set<Integer> keys = map.keySet();
+		Iterator<Integer> iter = keys.iterator();
+		while(iter.hasNext()){
+			int key = iter.next();
+			String val =map.get(key);
+			System.out.println(key+"==="+val);
+		}
+		2)values
+		Collection<String> values = map.values();
+		for(String val : values){
+			System.out.println(val);
+		}
+
+	
+	
 
 
 

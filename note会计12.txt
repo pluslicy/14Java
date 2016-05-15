@@ -1322,6 +1322,9 @@ API
 		TreeMap(了解)
 
 迭代器：Iterator
+			hasNext()	判断集合中是否有下一个元素
+			next()		获取下一个元素
+			remove()	删除下一个元素
 
 1. 创建集合对象
 	Set	
@@ -1331,6 +1334,7 @@ API
 		List<String> list = new ArrayList<String>();
 
 	Map
+		Map<Integer, Student> map = new HashMap<Integer, Student>();
 
 2. 如何向集合中添加元素
 	Set
@@ -1341,14 +1345,16 @@ API
 		list.add(1,"vicky");
 
 	Map
+		map.put(key,val);
 
 3. 如何从集合中获取指定元素
 	Set
 		无法获取
 	List
 		list.get(index);
-
 	Map
+		map.get(key);
+		
 
 4. 如何从集合中删除元素
 	Set
@@ -1357,6 +1363,7 @@ API
 		list.remove(index);
 		list.remove(val);
 	Map
+		map.remove(key)
 
 5. 遍历
 	Set
@@ -1371,11 +1378,33 @@ API
 			}
 	List
 		1)迭代器
+			Iterator<String> iter = list.iterator();
+			while(iter.hasNext()){
+				System.out.println(iter.next());
+			}
 		2)foreach
+			for(String val : list){
+				System.out.println(val);
+			}
 		3)for
+			for(int i=0;i<list.size();i++){
+				System.out.println(list.get(i));
+			}
 
 	Map
-
+		1)keys
+			Set<Integer> keys = map.keySet();
+			Iterator<Integer> iter = keys.iterator();
+			while(iter.hasNext()){
+				int key = iter.next();
+				Student val = map.get(key);
+				System.out.println(key+"->"+val);
+			}
+		2)values
+			Collection<Student> values = map.values();
+			for(Student val : values){
+				System.out.println(val);
+			}
 
 	软件会计
 	软件金融
@@ -1402,5 +1431,29 @@ API
 			医疗
 			...
 
-			
+		
+---------------------------day18-----------------------
+try{
+	代码
+}catch(异常对象变量的声明){
+
+}catch(异常对象变量的声明){
+
+}finally{
+	
+}
+
+try{
+
+}finally{
+
+}
+
+-----------------mysql数据库安装----------------
+1. 卸载
+2. 删除残留文件	
+	安装文件C:\Program Files\MySQL
+	数据文件C:\ProgramData\MySQL
+3. 删除注册表（可以不做）
+	win8 win10	权限 2503
 
