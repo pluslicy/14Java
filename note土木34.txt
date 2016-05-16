@@ -1262,18 +1262,64 @@ JavaProject
 			System.out.println(val);
 		}
 
-	
-	
+
+
+------------------------ch18---------------------	
+1. 异常机制
+	使得程序更加健壮
+	try{
+		代码1
+	}catch(异常变量1的声明){
+		代码2
+	}catch(异常变量2的声明){
+		代码3
+	}finally{
+		代码4
+	}
+
+
+2. jdbc
+	数据保存在   数组/集合（引用类型的变量 对象 堆内存）  数据无法持久化保存
+
+	数据库管理系统
+	java  操作 数据库管理系统
+	ORM
+
+	Object   Relatation	  Mapping
+	Bean类		表
+	属性		列
+	对象		记录
+
+	Java		Mysql/Oracle/DB2/SqlServer...
+				驱动！ class	
+	`
+	1. 获取驱动
+	2. 编程
+		java.sql.*
+			DriverManager	驱动管理类
+			Connection		连接接口
+				Connection conn = 连接对象
+			PrepareStatement	预处理SQL接口
+			ResultSet		结果集接口
+
+	3. 连接数据库的步骤
+		1. 注册驱动
+		2. 获取连接
+		3. 预处理SQL
+		4. 如果有占位符替换占位符
+		5. 执行SQL
+		6. 如果有结果集处理结果集
+		7. 释放资源
 
 
 
 
-
-
-
-
-
------------------------作业--------------------------
+================作业=================
+1. 安装jdk   eclipse   mysql  navicator
+2. 完成基于数组的学生信息管理系统
+2. 完成基于集合的学生信息管理系统
+3. 完成基于jdbc的学生信息管理系统（考核！）
+----------------作业------------------
 1. 掌握Sms
 2. 模仿Sms 完成  Tms
 3. 将Tms上传到github上

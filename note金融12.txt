@@ -1252,8 +1252,17 @@ elipse开发环境搭建	myeclipse(收费)
 		集合的长度可以动态增长
 		集合只能存放引用数据类型的值
 	
-	Collection		Map
-  Set	   List	
+	Collection(接口)		Map(接口)
+	  add()					put()
+	  remove()				remove()
+	  size()				size()
+	  clear()				clear()
+	  contains()		
+	  isEmpty()				isEmpty
+	  iterator()			keySet()
+	  ...					values()
+  Set(接口)	   List(接口)	
+  HashSet	  ArrayList		HashMap
   
 
   Set
@@ -1275,17 +1284,23 @@ elipse开发环境搭建	myeclipse(收费)
 		Set<String> set  = new HashSet<String>();
 	List
 		List<Interger> list = new ArrayList<Integer>();
+	Map
+		Map<Integer, String> map = new HashMap<Integer, String>();
 2.向集合中添加元素
 	Set
 		set.add("hello");
 	List
 		list.add(1);
+	Map
+		map.put(key,val);
 3.获取集合中元素	
 	Set
 		set无法获取单个元素
 	List
 		通过索引获取
 		list.get(index);
+	Map
+		map.get(key);
 
 4.遍历集合
 	Set
@@ -1302,15 +1317,113 @@ elipse开发环境搭建	myeclipse(收费)
 			}
 	List
 		1)for
+		for(int i =0;i<list.size();i++){
+			System.out.println(list.get(i));
+		}
 		2)foreach
+		for(String str : list){
+			System.out.println(str);
+		}
 		3)迭代器
+		Iterator<String> iter = list.iterator();
+		while(iter.hasNext()){
+			System.out.println(iter.next());
+		}
+	Map
+		1)keys
+		Set<Integer> keys = map.keySet();
+		for(int key : keys){
+			//通过key获取value
+			String val = map.get(key);
+			System.out.println(key+"---"+val);
+		}
+		2)values
+		Collection<String> values = map.values();
+		for(String val :values){
+			System.out.println(val);
+		}
+
+	  
+-------------day19-------------
+
+1.异常机制
+	是的代码更加健壮
+
+		代码1
+		代码2
+
+		当代码1出现异常的时候程序会终止，代码2不会执行
+	try{
+		代码1
+		代码2
+	}catch(异常变量1){
+		代码3
+	}catch(异常变量2){
+		代码4
+	}finally{
+		代码5
+	}
+
+	当代码1出现异常，假如这个异常被异常变量1捕获到将执行代码3.最后执行代码5
+
+	Exception
+		Arith
+2.将异常机制应用到学生信息管理系统中
+3.jdbc
+	java.sql.*;
+		DriverManager	驱动管理类
+		Connection		连接接口
+		PrepareStatement	预处理sql接口
+		ResultSet		接口集接口
+
+	java database connective
+	java连接数据库技术
+
+	java	mysql、oracle、db2、sqlserver
+
+	ORM  对象关系映射
+	Object		Relatation		Mapping
+	类（Student）	表（关系）（t_student）
+	属性			列			
+	对象			记录
+
+	使用
+		1. 获取连接数据库的驱动（数据库厂商）
+			build Path
+			驱动jar 绑定到项目中
+		2. 编程
+			1) 注册驱动
+				将驱动类加载到内存中
+				Class.forName("驱动类完整类名");
+			2) 获取连接
+				Connection conn = DriverManager.getConnection(url,user,password);
+			3) 预处理sql，如果有占位符，替换占位符
+				PrepareStatement pstmt = conn.prepareStatement(sql);
+			4) 执行sql
+				ResultSet	executeQuery()	查询操作
+					pstmt.executeQuery()
+				int			executeUpdate()	增删改操作
+					pstmt.executeUpdate()
+			5) 如果有结果集处理结果集
+				ResultSet
+			6) 释放资源
+				ResultSet
+				PrepareStatement
+				Connection
+
+				后创建的先释放
 
 
 
 
 
-
-
+=================作业======================
+1.环境搭建起来
+	jdk eclipse mysql navicator 
+2.项目
+	1)基于数组的学生信息管理系统
+	2)基于集合的学生信息管理系统
+	3)基于jdbc的学生信息管理系统(考核)
 
 
 --------------------------------------
