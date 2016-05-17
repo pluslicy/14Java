@@ -1417,6 +1417,38 @@ elipse开发环境搭建	myeclipse(收费)
 
 
 
+	把平凡的事情坚持做好就是不平凡
+	把简单的事情坚持做好就是不简单
+
+		js视频
+		
+
+	西安
+	  金领  5 
+	  中软国际（云计算  15年）
+	  Java  
+
+学习方向
+  CoreJava
+	多线程
+	IO流
+	net网络编程
+  Mysql(sql 连接查询，嵌套查询)
+
+  Servlet/JSP  界面
+  HTML/div/css/js(女)
+  Struts2
+  Spring
+  Hibernate
+
+  找工作
+
+
+
+
+
+
+
 =================作业======================
 1.环境搭建起来
 	jdk eclipse mysql navicator 

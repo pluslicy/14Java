@@ -1386,8 +1386,98 @@ this&super
 		for(String val : vals){
 			System.out.println(val);
 		}
----------------------------------------------
-异常
+---------------------day19------------------------
+
+1.异常
+	code1
+	code2	代码异常
+	code3
+
+
+	try{
+		code1
+		code2	代码异常  NumbeFormatException
+		code3
+	}catch(异常1变量的声明){
+		异常1的解决方案
+	}catch(异常2变量的声明){
+		异常2的解决方案
+	}finally{
+		最终要执行的代码
+	}
+	
+
+	try{
+	
+	}finally{
+	
+	}
+
+	《Java编程思想》  Thinking in Java
+	try{
+		try{
+		
+		}finally{
+		
+		}
+	}catch(){
+	
+	}
+
+	
+	《死神来了》
+
+2.将异常应用到学生信息管理系统中
+	while(true){
+		try{
+			业务逻辑
+		}catch(){
+			syso("输入错误")
+			continue;
+		}
+	}
+
+3.jdbc
+	java.sql.*
+
+	DriverManager	驱动管理类
+	Connection		连接接口
+	PrepareStatement预处理sql接口
+	ResultSet		结果集
+
+	Java Database Connectivity
+	Java连接数据库技术
+	1)获取驱动包（数据库厂商）
+	2)将驱动jar配置到CLASSPATH
+		build Path
+	3)编程
+		1.加载驱动
+		2.获取连接
+			参数
+				url			数据库地址
+				jdbc:mysql://127.0.0.1:3306/yysy
+				jdbc:mysql://ip:port/数据库名
+
+				user		用户名 
+
+				password	密码
+		3.预处理sql
+		4.执行sql
+			int executeUpdate()	增删改
+			ResultSet executeQuery()	查询
+
+		5.如果有结果集处理结果集
+		6.释放资源
+			ResultSet
+			PreparedStatement
+			Connection
 
 
 
+
+-------------作业----------------
+1. 复习基于数组的学生信息管理系统sms
+2. 学习基于集合的学生信息管理系统sms
+3. 完成基于jdbc的学生信息管理系统sms
+
+数组->集合->文件系统->jdbc
