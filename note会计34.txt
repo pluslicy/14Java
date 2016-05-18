@@ -1333,17 +1333,27 @@ eclipse的使用
 1. 原理
 	try{
 		代码1
+		代码2
+		代码3
 	}catch(ArrayIndexOutOfBoundsException e){
 		System.out.println("救火");
 	}catch (ArithmeticException e) {
 		System.out.println("找孩子");
+	}finally{
+		始终都要执行
 	}
 
 		try{
-			
+			try{
+				
+			}finally{
+				
+			}
 		}catch(Exception e){
 			e.printStackTrace();
 		}
+
+		
 
 当代码1发生异常，程序不会终止，而是执行异常处理代码
 
@@ -1353,6 +1363,48 @@ eclipse的使用
 	3.  根据父类构造函数构建自己的构造函数
 
 
+---------------------day20-----------------
+1. 将异常处理机制应用到学生信息管理系统中
+2. jdbc Java连接数据库技术
+	Java Database Connectivity
+	DBMS   SQL(standard Query Lanaguage)
+		SQLServer	
+		Mysql		
+		Oracle		
+		DB2...		
+	1)从各个数据库厂商获取驱动包
+		mysql
+		sqlserver
+	2)将驱动包的路径配置到项目 build path
+		
+	3)编程
+		1.注册驱动
+		2.获取连接
+			url		数据库地址
+			jdbc:mysql://127.0.0.1:3306/kj341
+			jdbc:mysql://ip:port/数据库名
+
+			user	数据用户名
+			password数据库密码
+		3.预处理sql，如果有占位符替换占位符
+		4.执行sql
+			DML
+			  查询语句	select
+				ResultSet executeQuery()
+				
+			  更新语句	update insert delete
+				int executeUpdate()
+		5.如果有结果集处理结果集
+		6.释放资源
+
+
+	java.sql.*;
+		DriverManager	驱动管理类
+
+		Connection			连接接口
+		PreparedStatement	预处理sql接口
+		ResultSet			结果集接口
+	
 
 
 
@@ -1369,3 +1421,11 @@ eclipse的使用
 1. 将sms消化
 2. 模仿Sms , Tms教师管理系统
 3. 将自己写好的代码发布到github上
+
+
+----------------------------------------
+  1. 复习基于数组的学生信息管理系统
+  2. 学习基于集合的学生信息管理系统
+  3. 掌握基于jdbc的学生信息管理系统（答辩）
+
+  数组 -> 集合 -> db （jdbc）
