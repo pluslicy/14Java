@@ -1425,6 +1425,73 @@ google
 	}catch(){
 	
 	}
+-----------------day20---------------------
+
+1. jdbc  java连接数据库技术
+	Java Database Conectivity
+
+	Java		DBMS
+				sqlserver（sql）
+				mysql
+				oracle
+	
+	1)获取驱动包（去数据库官网）
+		
+	2)为jar包建立类加载路径
+		dos		-cp mysql.jar 
+		eclipse	bulid Path
+	
+	3)编程
+		1. 加载驱动
+			Class.forName("");
+		2. 获取连接
+			DriverManager.getConnection(url,user,password)
+			url			数据库地址
+				jdbc:mysql://127.0.0.1:3306/tm12
+				jdbc:mysql://ip:port/数据库名
+			user		数据库用户名
+			password	数据密码
+
+		3. 预处理sql
+		4. 执行sql
+		    insert,delete,update
+				int executeUpdate();	
+			select
+				ResultSet executeQuery();
+
+		5. 如果结果集处理集
+		6. 释放资源
+			Connection
+			PreparedStatement
+			ResultSet
+			后创建先释放
+	4) API
+		java.sql
+
+		DriverManager	驱动管理类
+
+		Connection			连接接口
+		PreparedStatement	预处理sql接口
+		ResultSet			结果集接口
+	
+	
+
+西安
+	7000  省会
+
+昆山 13000		16K -> 20k
+	中软国际
+		20K * 14   4年工作经验
+		清华 14K
+	3000   QQ
+	5000   朗逸
+	8000   速腾
+	12000  帕萨特
+	20000  奥迪A6L
+
+
+
+
 
 ----------------作业------------------
 1. 基于数组的学生信息管理系统
@@ -1433,3 +1500,6 @@ google
 4. mysql安装
 
 5. jdbc操作
+
+
+jdk	eclipse	mysql
