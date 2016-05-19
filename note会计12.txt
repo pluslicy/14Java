@@ -1433,21 +1433,96 @@ API
 
 		
 ---------------------------day18-----------------------
-try{
-	代码
-}catch(异常对象变量的声明){
+	try{
+		代码
+	}catch(异常对象变量的声明){
 
-}catch(异常对象变量的声明){
+	}catch(异常对象变量的声明){
 
-}finally{
-	
-}
+	}finally{
+		
+	}
 
-try{
+	try{
 
-}finally{
+	}finally{
 
-}
+	}
+
+CoreJava  -  servlet/jsp --  ssh
+-----------------------day19--------------------
+jdbc
+	java连接数据库技术
+	Java	sql	DataBase
+				mysql
+				oracle
+				db2
+				sqlserver
+		
+	1) 获取驱动包。从数据库厂商
+	2) 指定类加载路径 .jar   .class
+		1. -cp
+		2. build path 将jar的路径配置到项目中
+	3) jdbc编程（套路）
+		1. 加载驱动
+			Class.forName("完整的驱动类名");
+		2. 获取连接
+			DriverManger.getConnection(url,user,password);
+			url			数据库的地址
+				jdbc:mysql://ip:port/数据库名
+				jdbc:mysql://127.0.0.1:3306/kj12
+
+			user		数据库的用户名
+			password	数据库的密码
+		3. 预处理sql
+			PreparedStatement
+		4. 执行sql
+			DDL
+				create table 
+				alter table
+				drop table
+			DML(增删改查)
+				更新语言
+					insert
+					update
+					delete
+
+					int executeUpdate();
+				查询语言
+					select
+
+					ResultSet executeQuery();
+
+		5. 如果有结果集处理结果集
+			ResultSet
+
+		6. 释放资源
+			ResultSet
+			PreparedStatement
+			Connection
+
+			后创建的先释放
+			Scanner sc = 
+			sc.close();
+
+
+	API
+		java.sql.*
+			DriverManager		驱动管理类
+			Connecion			连接接口
+				Connection conn = DriverManger.getConnection();
+			PreparedStatement	预处理sql接口
+				String sql = "select * from t_student";
+				PreparedStatement pstmt
+							= conn.prepareStatement(sql);
+			ResultSet			结果集接口
+				rs.next()
+
+
+		
+
+
+
 
 -----------------mysql数据库安装----------------
 1. 卸载
@@ -1456,4 +1531,18 @@ try{
 	数据文件C:\ProgramData\MySQL
 3. 删除注册表（可以不做）
 	win8 win10	权限 2503
+
+5000  20K	3年	Java后台开发 
+15年项目  云计算与大数据
+A6L
+高档小区
+
+买了房
+4万 400万 120万  280  1  
+--------------------作业----------------------
+1. 基于数组的学生信息管理系统
+2. 基于集合的学生信息管理系统
+3. 基于jdbc的学生信息管理系统
+
+
 
