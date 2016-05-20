@@ -1452,6 +1452,9 @@ this&super
 		build Path
 	3)编程
 		1.加载驱动
+			将驱动类加载到内存中
+			com.mysql.jdbc.Driver(驱动包)
+			Class.forName("com.mysql.jdbc.Driver");
 		2.获取连接
 			参数
 				url			数据库地址
@@ -1459,18 +1462,37 @@ this&super
 				jdbc:mysql://ip:port/数据库名
 
 				user		用户名 
-
 				password	密码
+			Connection conn = DriverManager.getConnection(url,user,password);
 		3.预处理sql
+			String sql = "";
+			PreparedStatement pstmt = conn.prepareStatement(sql);
 		4.执行sql
 			int executeUpdate()	增删改
 			ResultSet executeQuery()	查询
 
+			pstmt.executeUpdate();
+			pstmt.executeQuery();
 		5.如果有结果集处理结果集
+			ResultSet 
+
 		6.释放资源
 			ResultSet
 			PreparedStatement
 			Connection
+			后创建的先释放
+
+	Java语言	sun公司 --> Oracle公司
+					Oracle数据库
+					甲骨文		
+					微软	
+					IBM		
+					apache	
+
+
+------------------day20--------------------
+
+将jdbc应用到学生信息管理系统中！
 
 
 
@@ -1481,3 +1503,27 @@ this&super
 3. 完成基于jdbc的学生信息管理系统sms
 
 数组->集合->文件系统->jdbc
+
+
+---------------------------------------
+电子版(交给班长（将所有人的资料收齐，刻录到光盘中）)
+	班级-1021-姓名
+		项目
+		班级-1021-姓名-大作业.doc
+
+打印版（格式）
+	班级-1021-姓名-大作业.doc
+
+	注意点：
+		1.封皮，目录	不要改变样式
+		2.目录要记得更新
+		3.正文字体为
+				宋体小四
+				段落： 首行缩进两个字符
+					   行距1.5倍间距
+		  代码字体：
+			Calibri 5号
+
+---------------------------------------
+
+
