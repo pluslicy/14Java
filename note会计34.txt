@@ -1379,24 +1379,32 @@ eclipse的使用
 		
 	3)编程
 		1.注册驱动
+			Class.forName("驱动类完整类名");
 		2.获取连接
 			url		数据库地址
 			jdbc:mysql://127.0.0.1:3306/kj341
 			jdbc:mysql://ip:port/数据库名
-
 			user	数据用户名
 			password数据库密码
+
+			Connection conn 
+				= DriverManager.getConnection(url,user,password)
 		3.预处理sql，如果有占位符替换占位符
+			PreparedStatement pstmt = conn.prepareStatement(sql);
+			如果sql中有占位符，替换占位符
 		4.执行sql
 			DML
 			  查询语句	select
 				ResultSet executeQuery()
-				
 			  更新语句	update insert delete
 				int executeUpdate()
 		5.如果有结果集处理结果集
+			ResultSet rs
 		6.释放资源
-
+			ResultSet
+			PreparedStatement
+			Connection
+			后创建的先释放
 
 	java.sql.*;
 		DriverManager	驱动管理类
@@ -1404,12 +1412,38 @@ eclipse的使用
 		Connection			连接接口
 		PreparedStatement	预处理sql接口
 		ResultSet			结果集接口
-	
+
+	try{
+		Connection conn = null;
+		try{
+			
+		}finally{
+			//释放资源
+			if(conn!=null){
+				conn.close();
+			}
+		}
+	}catch(Exception e){
+		e.printStackTrace();
+	}
 
 
+-----------------------------------------
+电子版（班长->DVD）
+	会计3班-10201-张三
+		代码
+			基于jdbcxxx信息管理系统
 
+			空姐
+			id name age X X
+		大作业
+			金融1班-10201-张三-大作业.doc
+	会计3班-10201-张三
+	会计3班-10201-张三
 
-
+纸质版
+	金融1班-10201-张三-大作业.doc
+-----------------------------------------
 
 
 
